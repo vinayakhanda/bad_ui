@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model 500 Rotary Telegraph, 360° Orbital Date &amp; Skateboard Name Console</title>
+  <title>Registration Form</title>
   <style>
     /* ==========================================================================
-       1. RESET, DESIGN TOKENS & 4 VINTAGE CASING THEMES (100% SELF-CONTAINED)
+       1. MINIMALIST DESIGN SYSTEM & RESET (100% SELF-CONTAINED)
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,579 +15,515 @@
     }
 
     :root {
-      --page-bg: radial-gradient(circle at 50% 10%, #26221e 0%, #12100e 65%, #090807 100%);
-      --chassis-bg: linear-gradient(165deg, #2c2a29 0%, #191817 52%, #0f0e0d 100%);
-      --chassis-border: rgba(255, 255, 255, 0.14);
-      --chassis-shadow: 0 24px 50px rgba(0, 0, 0, 0.78), inset 0 1px 1px rgba(255, 255, 255, 0.18);
-      --chassis-text: #f5f0e6;
-      --chassis-muted: #a89f91;
-      --bezel-bg: linear-gradient(180deg, #0d0c0b 0%, #1a1816 100%);
-      --plate-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.32) 100%);
-      --accent-gold: #fbbf24;
-      --accent-sky: #38bdf8;
-      --accent-emerald: #34d399;
-      --dial-ring: #1f1d1b;
-      --dial-plate: #f7f1e3;
-      --dial-ink: #1c1917;
-    }
-
-    body[data-theme="ivory"] {
-      --page-bg: radial-gradient(circle at 50% 10%, #463f37 0%, #231f1b 68%, #14110f 100%);
-      --chassis-bg: linear-gradient(165deg, #f6efe0 0%, #e6dac3 55%, #d3c3a4 100%);
-      --chassis-border: rgba(92, 73, 47, 0.35);
-      --chassis-shadow: 0 24px 50px rgba(0, 0, 0, 0.65), inset 0 2px 2px rgba(255, 255, 255, 0.85);
-      --chassis-text: #292218;
-      --chassis-muted: #665845;
-      --bezel-bg: linear-gradient(180deg, #241e17 0%, #332b22 100%);
-      --plate-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(168, 148, 118, 0.25) 100%);
-      --dial-ring: #dfd2b8;
-      --dial-plate: #fffaf0;
-      --dial-ink: #292218;
-    }
-
-    body[data-theme="green"] {
-      --page-bg: radial-gradient(circle at 50% 10%, #232b1e 0%, #12170f 68%, #090c07 100%);
-      --chassis-bg: linear-gradient(165deg, #5c6b43 0%, #445030 55%, #303921 100%);
-      --chassis-border: rgba(217, 230, 184, 0.24);
-      --chassis-shadow: 0 24px 50px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(235, 245, 210, 0.28);
-      --chassis-text: #f3f6ea;
-      --chassis-muted: #c8d2b4;
-      --bezel-bg: linear-gradient(180deg, #161b11 0%, #232b1c 100%);
-      --plate-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.28) 100%);
-      --dial-ring: #3b4629;
-      --dial-plate: #f6f3e4;
-      --dial-ink: #222918;
-    }
-
-    body[data-theme="red"] {
-      --page-bg: radial-gradient(circle at 50% 10%, #341b19 0%, #1b0d0c 68%, #0e0606 100%);
-      --chassis-bg: linear-gradient(165deg, #b8372c 0%, #92251c 55%, #6e1912 100%);
-      --chassis-border: rgba(254, 215, 210, 0.28);
-      --chassis-shadow: 0 24px 50px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(255, 210, 205, 0.35);
-      --chassis-text: #fff5f3;
-      --chassis-muted: #f2c4be;
-      --bezel-bg: linear-gradient(180deg, #1e0b09 0%, #2e120f 100%);
-      --plate-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(0, 0, 0, 0.3) 100%);
-      --dial-ring: #7c1d15;
-      --dial-plate: #fff8f5;
-      --dial-ink: #2b110e;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --bg-muted: #f1f5f9;
+      --border-card: #e2e8f0;
+      --border-input: #cbd5e1;
+      --divider: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --text-placeholder: #94a3b8;
+      --accent-blue: #2563eb;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #059669;
+      --accent-emerald-bg: #ecfdf5;
+      --accent-emerald-border: #a7f3d0;
+      --accent-danger: #dc2626;
+      --accent-danger-bg: #fef2f2;
+      --accent-danger-border: #fecaca;
     }
 
     html {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color-scheme: dark;
+      color-scheme: light;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
       min-height: 100vh;
-      background: var(--page-bg);
-      color: #f5f5f4;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 12px 12px 36px;
-      gap: 16px;
-      overflow-x: hidden;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 14px 56px;
+      line-height: 1.5;
     }
 
-    .font-mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    }
-
-    .font-display {
-      font-family: "Trebuchet MS", "Arial Narrow", Impact, sans-serif;
-      letter-spacing: 0.04em;
+    .tabular {
+      font-variant-numeric: tabular-nums;
     }
 
     /* ==========================================================================
-       2. TOP BAR & VINTAGE THEME SWITCHER
+       2. CENTERED FORM CARD & HEADER
        ========================================================================== */
-    .top-bar {
-      position: sticky;
-      top: 8px;
-      z-index: 40;
+    .form-card {
       width: 100%;
       max-width: 540px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.03);
+      overflow: hidden;
+    }
+
+    .form-header {
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--divider);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(18, 17, 16, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+      gap: 12px;
     }
 
-    .brand-tag {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
+    .form-title {
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #fde68a;
-      white-space: nowrap;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
 
-    .brand-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #fbbf24;
-      box-shadow: 0 0 8px #fbbf24;
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
     }
 
-    .theme-controls {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .theme-swatch {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .theme-swatch:hover {
-      transform: scale(1.12);
-    }
-
-    .theme-swatch.active {
-      border-color: #fbbf24;
-      box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.45);
-      transform: scale(1.12);
-    }
-
-    .sound-btn {
+    .sound-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 5px 10px;
+      gap: 6px;
+      padding: 6px 11px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.08);
-      color: #f5f5f4;
-      font-size: 11px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s ease;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
-    .sound-btn:hover {
-      background: rgba(255, 255, 255, 0.16);
+    .sound-toggle:hover {
+      background: var(--bg-muted);
+      color: var(--text-primary);
     }
 
     /* ==========================================================================
-       3. SHARED CHASSIS, DISPLAY BEZELS & TACTILE BUTTONS
+       3. FORM SECTIONS, READOUT BOXES, BUTTONS & VALIDATION
        ========================================================================== */
-    .console-stack {
-      width: 100%;
-      max-width: 540px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    .form-section {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--divider);
     }
 
-    .chassis-card {
-      position: relative;
-      width: 100%;
-      border-radius: 32px;
-      padding: 18px 18px 22px;
-      background: var(--chassis-bg);
-      border: 1px solid var(--chassis-border);
-      box-shadow: var(--chassis-shadow);
-      color: var(--chassis-text);
-      transition: background 0.3s ease, color 0.3s ease;
+    .form-section:last-of-type {
+      border-bottom: none;
     }
 
-    @keyframes phoneRingShake {
-      0%, 100% { transform: translateX(0) rotate(0deg); }
-      20% { transform: translateX(-3px) rotate(-0.6deg); }
-      40% { transform: translateX(3px) rotate(0.6deg); }
-      60% { transform: translateX(-2px) rotate(-0.4deg); }
-      80% { transform: translateX(2px) rotate(0.4deg); }
-    }
-
-    .chassis-card.ringing-active {
-      animation: phoneRingShake 0.18s infinite;
-    }
-
-    .module-header {
+    .field-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      padding: 0 4px 10px;
+      margin-bottom: 10px;
     }
 
-    .module-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .field-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
     }
 
-    .module-sub {
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--chassis-muted);
-    }
-
-    .display-bezel {
-      background: var(--bezel-bg);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 18px;
-      padding: 12px 14px;
-      box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.85), 0 1px 0 rgba(255, 255, 255, 0.12);
-      color: #f5f5f4;
-    }
-
-    .engraved-plate {
-      background: var(--plate-bg);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 12px;
-    }
-
-    .vintage-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 12px;
-      border-radius: 14px;
+    .field-meta {
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
-      transition: transform 0.1s ease, filter 0.15s ease, opacity 0.15s ease;
-      user-select: none;
+      font-weight: 500;
+      color: var(--text-muted);
     }
 
-    .vintage-btn:hover:not(:disabled) {
-      filter: brightness(1.08);
-    }
-
-    .vintage-btn:active:not(:disabled) {
-      transform: translateY(1px) scale(0.985);
-    }
-
-    .vintage-btn:disabled {
-      opacity: 0.42;
-      cursor: not-allowed;
-    }
-
-    .btn-ivory {
-      background: linear-gradient(180deg, #f5efe2 0%, #d6cbb5 100%);
-      color: #231f1a;
-    }
-
-    .btn-crimson {
-      background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
-      color: #fff5f5;
-    }
-
-    .btn-emerald {
-      background: linear-gradient(180deg, #10b981 0%, #047857 100%);
-      color: #ecfdf5;
-    }
-
-    .btn-emerald.ready-glow {
-      box-shadow: 0 0 16px rgba(16, 185, 129, 0.65), 0 4px 10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    }
-
-    .fine-btn {
-      background: linear-gradient(180deg, rgba(42, 40, 38, 0.92) 0%, rgba(22, 20, 19, 0.96) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #f5f5f4;
-      border-radius: 12px;
-      padding: 8px 6px;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-      transition: transform 0.1s ease, background 0.15s ease;
-    }
-
-    .fine-btn:hover {
-      background: linear-gradient(180deg, rgba(58, 55, 52, 0.95) 0%, rgba(30, 28, 26, 0.98) 100%);
-    }
-
-    .fine-btn:active {
-      transform: translateY(1px);
-    }
-
-    .fine-btn-accent {
-      background: linear-gradient(180deg, #b45309 0%, #78350f 100%);
-      border: 1px solid rgba(253, 224, 71, 0.45);
-      color: #fef3c7;
-    }
-
-    /* ==========================================================================
-       4. MODULE 1: ROTARY TELEPHONE FLIP-CARD DISPLAY & DIAL
-       ========================================================================== */
-    .cradle-bar {
+    .readout-box {
+      height: 44px;
+      width: 100%;
+      padding: 0 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-input);
+      background: var(--bg-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 28px 8px;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: border-color 0.15s ease, background-color 0.15s ease;
     }
 
-    .plunger {
-      width: 34px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #78716c 0%, #292524 100%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    .readout-box.locked-state {
+      background: var(--accent-emerald-bg);
+      border-color: var(--accent-emerald-border);
+      color: #065f46;
     }
 
-    .plunger.lifted {
-      transform: translateY(-7px);
-      background: linear-gradient(180deg, #fbbf24 0%, #b45309 100%);
+    .readout-placeholder {
+      color: var(--text-placeholder);
+      font-weight: 400;
     }
 
-    .flip-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin: 8px 0;
-    }
-
-    .flip-sep {
-      font-weight: 800;
-      color: #a8a29e;
-      font-size: 16px;
-      padding: 0 1px;
-    }
-
-    .flip-card {
-      width: 26px;
-      height: 36px;
-      border-radius: 6px;
-      background: linear-gradient(180deg, #262524 0%, #171615 49%, #100f0e 51%, #1c1b1a 100%);
-      border: 1px solid #3f3d3b;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.14);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 800;
-      color: #fde68a;
-      text-shadow: 0 0 8px rgba(251, 191, 36, 0.45);
-      position: relative;
-    }
-
-    .flip-card::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.65);
-    }
-
-    .flip-card.empty {
-      color: #57534e;
-      text-shadow: none;
-    }
-
-    .flip-card.active-next {
-      border-color: #fbbf24;
-      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.45), 0 2px 6px rgba(0, 0, 0, 0.75);
-    }
-
-    .dial-stage {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 12px 0;
-    }
-
-    #rotary-dial-svg {
-      width: 100%;
-      max-width: 296px;
-      height: auto;
-      touch-action: none;
-      user-select: none;
-      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.65));
-    }
-
-    .call-banner {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(6, 78, 59, 0.75);
-      border: 1px solid rgba(52, 211, 153, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 12px;
-      color: #ecfdf5;
-    }
-
-    /* ==========================================================================
-       5. MODULE 2: 360-DEGREE EARTH-AROUND-SUN ORBITAL DATE PICKER
-       ========================================================================== */
-    .orrery-stage {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 8px 0 10px;
-    }
-
-    #orbital-svg {
-      width: 100%;
-      max-width: 320px;
-      height: auto;
-      touch-action: none;
-      user-select: none;
-      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.6));
-    }
-
-    .fine-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 6px;
-    }
-
-    /* ==========================================================================
-       6. MODULE 3: SKATEBOARD NAME ENTRY BOX (BRICKLESS MULTI-LETTER SPAWNING)
-       ========================================================================== */
-    .name-tiles-row {
-      display: grid;
-      grid-template-columns: repeat(16, minmax(0, 1fr));
-      gap: 3px;
-      margin: 6px 0;
-      user-select: none;
-    }
-
-    .name-tile {
-      height: 30px;
-      background: linear-gradient(180deg, #23262e 0%, #17191f 50%, #111318 100%);
-      border: 1px solid #383c47;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 800;
-      color: #fde68a;
-      text-shadow: 0 0 8px rgba(251, 191, 36, 0.45);
-    }
-
-    .name-tile.empty-tile {
-      color: #4b5563;
-      text-shadow: none;
-    }
-
-    .name-tile.cursor-tile {
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.45), 0 2px 6px rgba(0, 0, 0, 0.7);
-    }
-
-    @keyframes cursorBlink {
+    @keyframes caretBlink {
       0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0.15; }
+      50%, 100% { opacity: 0; }
     }
 
-    .cursor-blink {
-      animation: cursorBlink 0.9s infinite;
-      color: #38bdf8;
+    .caret {
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background-color: var(--accent-blue);
+      vertical-align: middle;
+      margin-left: 1px;
+      animation: caretBlink 0.95s infinite;
     }
 
-    .arena-frame {
-      width: 100%;
-      border-radius: 18px;
-      background: #070910;
-      padding: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.9);
+    .helper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
-    #arcade-canvas {
-      display: block;
-      width: 100%;
-      height: 245px;
-      touch-action: none;
-      border-radius: 13px;
+    .btn-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
     }
 
-    .steer-grid {
+    .btn-row-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
       margin-top: 10px;
     }
 
-    .arcade-btn-grid {
+    .btn-row-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn-row-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      user-select: none;
+      touch-action: manipulation;
+      transition: background-color 0.14s ease, border-color 0.14s ease, transform 0.08s ease, opacity 0.14s ease;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #1e293b;
+      border-color: #1e293b;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--text-primary);
+      border-color: var(--border-input);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: var(--bg-subtle);
+      border-color: #94a3b8;
+    }
+
+    .btn-subtle {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border-color: var(--border-card);
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .btn-subtle:hover:not(:disabled) {
+      background: var(--bg-muted);
+      color: var(--text-primary);
+    }
+
+    .field-error {
       margin-top: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-danger);
+      min-height: 16px;
+    }
+
+    .field-error:empty {
+      display: none;
     }
 
     /* ==========================================================================
-       7. UNIFIED DISPATCH SUMMARY FOOTER
+       4. FIELD 1: FULL NAME SKATEBOARD CATCHER CANVAS
        ========================================================================== */
-    .summary-footer {
+    .canvas-wrap {
+      margin-top: 12px;
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      overflow: hidden;
+    }
+
+    #name-canvas {
+      display: block;
       width: 100%;
-      border-radius: 26px;
-      background: rgba(14, 13, 12, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-      padding: 16px;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.65);
+      height: 210px;
+      touch-action: none;
+    }
+
+    /* ==========================================================================
+       5. FIELD 2: ROTARY DIAL & FIELD 3: ORBITAL DATE PICKER CONTAINERS
+       ========================================================================== */
+    .widget-center {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #rotary-svg {
+      width: 260px;
+      height: 260px;
+      max-width: 100%;
+      touch-action: none;
+      user-select: none;
+    }
+
+    #orbital-svg {
+      width: 280px;
+      height: 280px;
+      max-width: 100%;
+      touch-action: none;
+      user-select: none;
+    }
+
+    /* ==========================================================================
+       6. FIELD 4: PREFERRED QUANTITY SPEEDOMETER & PEDALS
+       ========================================================================== */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid var(--border-card);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .status-pill[data-status="Accelerating"] {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .status-pill[data-status="Braking"] {
+      background: var(--accent-danger-bg);
+      border-color: var(--accent-danger-border);
+      color: var(--accent-danger);
+    }
+
+    .status-pill[data-status="Coasting"] {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #b45309;
+    }
+
+    .status-pill[data-status="Locked"] {
+      background: var(--accent-emerald-bg);
+      border-color: var(--accent-emerald-border);
+      color: var(--accent-emerald);
+    }
+
+    #speedometer-svg {
+      width: 280px;
+      height: 165px;
+      max-width: 100%;
+      user-select: none;
+    }
+
+    .pedal-btn {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 12px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border-input);
+      background: #ffffff;
+      color: var(--text-primary);
+      cursor: pointer;
+      user-select: none;
+      touch-action: none;
+      transition: background-color 0.1s ease, border-color 0.1s ease, transform 0.08s ease, box-shadow 0.1s ease;
+    }
+
+    .pedal-btn:hover:not(:disabled) {
+      background: var(--bg-subtle);
+      border-color: #94a3b8;
+    }
+
+    .pedal-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .pedal-btn.pedal-brake.active-pedal {
+      background: var(--accent-danger-bg);
+      border-color: var(--accent-danger);
+      color: var(--accent-danger);
+      transform: translateY(2px);
+      box-shadow: inset 0 2px 4px rgba(220, 38, 38, 0.12);
+    }
+
+    .pedal-btn.pedal-accel.active-pedal {
+      background: #eff6ff;
+      border-color: var(--accent-blue);
+      color: #1d4ed8;
+      transform: translateY(2px);
+      box-shadow: inset 0 2px 4px rgba(37, 99, 235, 0.14);
+    }
+
+    .pedal-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .pedal-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .kbd-badge {
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border-input);
+      background: var(--bg-subtle);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       7. SUBMIT FOOTER & CONFIRMATION SUMMARY CARD
+       ========================================================================== */
+    .submit-footer {
+      padding: 20px 24px 24px;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--divider);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .confirmation-card {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--accent-emerald-border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.06);
+    }
+
+    .confirmation-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      margin-bottom: 12px;
+    }
+
+    .summary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-card);
+      font-size: 13px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       gap: 12px;
     }
 
-    .summary-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 12px;
-      padding: 3px 0;
-    }
-
-    .summary-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #a8a29e;
+    .summary-key {
+      color: var(--text-muted);
+      font-weight: 500;
       white-space: nowrap;
     }
 
-    .confirm-banner {
-      border-radius: 14px;
-      background: rgba(6, 78, 59, 0.8);
-      border: 1px solid rgba(52, 211, 153, 0.45);
-      padding: 10px 12px;
-      font-size: 12px;
-      color: #ecfdf5;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .summary-val {
+      color: var(--text-primary);
+      font-weight: 600;
+      text-align: right;
+      word-break: break-word;
     }
 
     .hidden {
@@ -595,396 +531,313 @@
     }
   </style>
 </head>
-<body data-theme="black">
+<body>
 
-  <!-- ========================================================================
-       STICKY HEADER: BRANDING, 4 VINTAGE CASING SWATCHES & AUDIO TOGGLE
-       ======================================================================== -->
-  <header class="top-bar">
-    <div class="brand-tag">
-      <span class="brand-dot"></span>
-      <span>BELL-500 • ORRERY • SKATE</span>
-    </div>
+  <main class="form-card">
+    <!-- ======================================================================
+         FORM HEADER & SOUND TOGGLE
+         ====================================================================== -->
+    <header class="form-header">
+      <div>
+        <h1 class="form-title">Registration Form</h1>
+        <p class="form-subtitle">Complete each interactive field below to register.</p>
+      </div>
 
-    <div class="theme-controls" role="group" aria-label="Vintage Casing Color Themes">
-      <button type="button" class="theme-swatch active" data-theme-target="black"
-        style="background: radial-gradient(circle at 30% 30%, #44403c, #0c0a09);"
-        title="Bakelite Black" aria-label="Bakelite Black theme"></button>
-      <button type="button" class="theme-swatch" data-theme-target="ivory"
-        style="background: radial-gradient(circle at 30% 30%, #fffbeb, #d6c7a9);"
-        title="Ivory Cream" aria-label="Ivory Cream theme"></button>
-      <button type="button" class="theme-swatch" data-theme-target="green"
-        style="background: radial-gradient(circle at 30% 30%, #7c8f5c, #364125);"
-        title="Avocado Green" aria-label="Avocado Green theme"></button>
-      <button type="button" class="theme-swatch" data-theme-target="red"
-        style="background: radial-gradient(circle at 30% 30%, #ef4444, #7f1d1d);"
-        title="Coral Red" aria-label="Coral Red theme"></button>
-
-      <button type="button" id="btn-sound-toggle" class="sound-btn" aria-pressed="true" title="Toggle Mechanical & Arcade Audio">
-        <svg id="icon-sound-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" id="btn-sound-toggle" class="sound-toggle" aria-pressed="true" title="Toggle Web Audio feedback">
+        <svg id="icon-sound-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
           <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
         </svg>
-        <svg id="icon-sound-off" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="icon-sound-off" class="hidden" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
           <line x1="23" y1="9" x2="17" y2="15"/>
           <line x1="17" y1="9" x2="23" y2="15"/>
         </svg>
-        <span id="sound-label">Sound On</span>
+        <span id="sound-toggle-label">Sound On</span>
       </button>
-    </div>
-  </header>
-
-  <main class="console-stack">
+    </header>
 
     <!-- ======================================================================
-         MODULE 1: 10-DIGIT VINTAGE ROTARY LANDLINE TELEPHONE
+         1. FULL NAME (BRICKLESS MULTI-WAVE SKATEBOARD LETTER CATCHER)
          ====================================================================== -->
-    <section id="phone-housing" class="chassis-card" aria-label="Vintage Rotary Landline Telephone">
-      <div class="cradle-bar" aria-hidden="true">
-        <div id="plunger-left" class="plunger"></div>
-        <div id="plunger-right" class="plunger"></div>
+    <section class="form-section" aria-labelledby="label-fullname">
+      <div class="field-header">
+        <label id="label-fullname" class="field-label">Full Name</label>
+        <span id="name-counter" class="field-meta tabular">0 / 16</span>
       </div>
 
-      <div class="module-header">
-        <div class="module-title">
-          <span style="width:9px;height:9px;border-radius:50%;background:#fbbf24;box-shadow:0 0 8px #fbbf24;"></span>
-          <span>Model 500 Rotary Landline</span>
-        </div>
-        <span class="module-sub">Drag Clockwise or Tap</span>
+      <div id="name-display" class="readout-box" aria-live="polite">
+        <span id="name-display-content"><span class="readout-placeholder">Catch falling letters below</span><span class="caret"></span></span>
       </div>
 
-      <!-- 10-Digit Split-Flap Readout -->
-      <div class="display-bezel">
-        <div style="display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#a8a29e;">
-          <span style="text-transform:uppercase;letter-spacing:0.12em;color:#fcd34d;font-weight:700;">10-Digit Subscriber Line</span>
-          <span id="digit-counter" class="font-mono" style="font-weight:700;">0 / 10 digits</span>
-        </div>
-
-        <div id="flip-cards-row" class="flip-row font-display" aria-live="polite">
-          <!-- Populated dynamically by RotaryTelephoneApp -->
-        </div>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;">
-          <div style="display:flex;align-items:center;gap:6px;overflow:hidden;">
-            <span id="phone-status-dot" style="width:8px;height:8px;border-radius:50%;background:#fbbf24;flex-shrink:0;"></span>
-            <span id="phone-status-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Drag any hole to the chrome finger stop</span>
-          </div>
-          <span class="font-mono" style="font-size:10px;color:#78716c;flex-shrink:0;">KEYS 0–9</span>
-        </div>
+      <div class="canvas-wrap">
+        <canvas id="name-canvas" height="210" aria-label="Falling letters and skateboard catcher"></canvas>
       </div>
 
-      <!-- Interactive SVG Rotary Dial -->
-      <div class="dial-stage">
-        <svg id="rotary-dial-svg" width="300" height="300" viewBox="0 0 320 320" role="application" aria-label="Interactive rotary telephone dial">
+      <div class="helper-row">
+        <span>Steer with ← / → or A / D keys, hold buttons, or drag canvas</span>
+      </div>
+
+      <div class="btn-row-grid-2">
+        <button type="button" id="btn-skate-left" class="btn btn-subtle">← Left</button>
+        <button type="button" id="btn-skate-right" class="btn btn-subtle">Right →</button>
+      </div>
+
+      <div class="btn-row-grid-3">
+        <button type="button" id="btn-name-start" class="btn btn-primary">
+          <span id="name-start-label">Start</span>
+        </button>
+        <button type="button" id="btn-name-delete" class="btn btn-outline" disabled>Delete Last</button>
+        <button type="button" id="btn-name-clear" class="btn btn-outline" disabled>Clear</button>
+      </div>
+
+      <p id="err-name" class="field-error" role="alert"></p>
+    </section>
+
+    <!-- ======================================================================
+         2. PHONE NUMBER (10-DIGIT ROTARY DIAL)
+         ====================================================================== -->
+    <section class="form-section" aria-labelledby="label-phone">
+      <div class="field-header">
+        <label id="label-phone" class="field-label">Phone Number</label>
+        <span id="phone-counter" class="field-meta tabular">0 / 10 digits</span>
+      </div>
+
+      <div id="phone-display" class="readout-box tabular" aria-live="polite">
+        <span id="phone-display-text">( _ _ _ ) _ _ _ - _ _ _ _</span>
+        <span id="phone-hint-text" style="font-size:12px;font-weight:500;color:var(--text-muted);">Drag to stop or tap</span>
+      </div>
+
+      <div class="widget-center">
+        <svg id="rotary-svg" width="260" height="260" viewBox="0 0 260 260" role="application" aria-label="10-digit rotary telephone dial">
           <defs>
-            <radialGradient id="dialBezelGrad" cx="35%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="#57534e" />
-              <stop offset="55%" stop-color="#1c1917" />
-              <stop offset="100%" stop-color="#090807" />
-            </radialGradient>
-            <radialGradient id="centerMedallionGrad" cx="35%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="#fef3c7" />
-              <stop offset="65%" stop-color="#d97706" />
-              <stop offset="100%" stop-color="#78350f" />
-            </radialGradient>
-            <linearGradient id="chromeStopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#ffffff" />
-              <stop offset="45%" stop-color="#cbd5e1" />
-              <stop offset="100%" stop-color="#475569" />
-            </linearGradient>
-            <mask id="fingerWheelMask">
-              <rect x="0" y="0" width="320" height="320" fill="white" />
-              <circle cx="160" cy="160" r="64" fill="black" />
-              <g id="mask-holes-group"></g>
+            <mask id="rotaryWheelMask">
+              <rect x="0" y="0" width="260" height="260" fill="white" />
+              <circle cx="130" cy="130" r="52" fill="black" />
+              <g id="rotary-mask-holes"></g>
             </mask>
           </defs>
 
-          <!-- Outer Metallic Bezel -->
-          <circle cx="160" cy="160" r="152" fill="url(#dialBezelGrad)" stroke="rgba(255,255,255,0.22)" stroke-width="2" />
-          <circle cx="160" cy="160" r="142" fill="var(--dial-plate)" stroke="#a8a29e" stroke-width="1.5" />
+          <!-- Stationary Dial Plate -->
+          <circle cx="130" cy="130" r="124" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <circle cx="130" cy="130" r="118" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
 
-          <!-- Stationary Number Plate (1 through 0 counterclockwise) -->
-          <g id="stationary-numbers-group"></g>
+          <!-- Stationary Digits 1–0 Counterclockwise -->
+          <g id="rotary-numbers-group"></g>
 
-          <!-- Rotating Finger Wheel with 10 Perforated Holes -->
-          <g id="finger-wheel-group" style="transform-origin: 160px 160px;">
-            <circle cx="160" cy="160" r="139" fill="rgba(24, 22, 20, 0.84)" mask="url(#fingerWheelMask)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" />
-            <g id="hole-rims-group"></g>
+          <!-- Frosted Rotating Finger Wheel -->
+          <g id="rotary-wheel-group" style="transform-origin: 130px 130px;">
+            <circle cx="130" cy="130" r="116" fill="rgba(226, 232, 240, 0.72)" mask="url(#rotaryWheelMask)" stroke="#cbd5e1" stroke-width="1.2" />
+            <g id="rotary-hole-rims"></g>
           </g>
 
-          <!-- Center Brass Medallion -->
-          <circle cx="160" cy="160" r="62" fill="url(#centerMedallionGrad)" stroke="#fef3c7" stroke-width="1.5" />
-          <circle cx="160" cy="160" r="54" fill="#fffbeb" stroke="#b45309" stroke-width="1" />
-          <text x="160" y="147" text-anchor="middle" fill="#78350f" font-size="9" font-weight="800" letter-spacing="1.8">WESTERN ELECTRIC</text>
-          <text x="160" y="164" text-anchor="middle" fill="#1c1917" font-size="13" font-weight="900" letter-spacing="1.2">500-SERIES</text>
-          <text x="160" y="179" text-anchor="middle" fill="#92400e" font-size="8.5" font-weight="700" letter-spacing="1.4">AREA • EXCHANGE</text>
+          <!-- Center Hub -->
+          <circle cx="130" cy="130" r="50" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+          <text x="130" y="126" text-anchor="middle" fill="#64748b" font-size="9" font-weight="700" letter-spacing="1.4">ROTARY</text>
+          <text x="130" y="140" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700" letter-spacing="0.8">10-DIGIT</text>
 
-          <!-- Curved Chrome Finger Stop at ~4:00 Position (52 deg) -->
-          <g transform="translate(160, 160) rotate(52)">
-            <path d="M 78 -7 L 146 -11 Q 152 0 146 11 L 78 7 Q 72 0 78 -7 Z"
-              fill="url(#chromeStopGrad)" stroke="#1e293b" stroke-width="1.4" />
-            <circle cx="139" cy="0" r="3.2" fill="#334155" />
+          <!-- Brushed-Slate Finger Stop at 135° Clockwise from Top (45° from +X) -->
+          <g transform="translate(130, 130) rotate(45)">
+            <path d="M 62 -5 L 120 -8 Q 124 0 120 8 L 62 5 Q 58 0 62 -5 Z" fill="#475569" stroke="#334155" stroke-width="1" />
+            <circle cx="114" cy="0" r="2.2" fill="#cbd5e1" />
           </g>
         </svg>
       </div>
 
-      <!-- Telephone Action Buttons -->
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;">
-        <button type="button" id="btn-undo-digit" class="vintage-btn btn-ivory" disabled>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 14L4 9l5-5"/>
-            <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
-          </svg>
-          <span>Undo Digit</span>
-        </button>
-
-        <button type="button" id="btn-hang-up" class="vintage-btn btn-crimson">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/>
-            <line x1="22" y1="2" x2="2" y2="22"/>
-          </svg>
-          <span>Hang Up</span>
-        </button>
-
-        <button type="button" id="btn-place-call" class="vintage-btn btn-emerald" disabled>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>Place Call</span>
-        </button>
+      <div class="btn-row-grid-2">
+        <button type="button" id="btn-phone-undo" class="btn btn-outline" disabled>Undo Digit</button>
+        <button type="button" id="btn-phone-clear" class="btn btn-outline" disabled>Clear</button>
       </div>
 
-      <!-- Active Ringing Call Banner -->
-      <div id="active-call-banner" class="call-banner hidden" role="status">
-        <div>
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:#6ee7b7;font-weight:800;">Ringing Line Connected</div>
-          <div class="font-mono" style="font-weight:700;margin-top:2px;">
-            <span id="call-banner-number">(555) 123-4567</span> • <span id="call-banner-date">Fri, Nov 20, 2026</span>
-          </div>
-        </div>
-        <button type="button" id="btn-banner-hangup" class="vintage-btn btn-crimson" style="padding:6px 10px;font-size:11px;">End Call</button>
-      </div>
+      <p id="err-phone" class="field-error" role="alert"></p>
     </section>
 
     <!-- ======================================================================
-         MODULE 2: 360-DEGREE EARTH-AROUND-SUN ORBITAL DATE PICKER
+         3. DATE OF BIRTH (360-DEGREE EARTH-AROUND-SUN ORBITAL PICKER)
          ====================================================================== -->
-    <section id="orbital-date-housing" class="chassis-card" aria-label="360-Degree Earth-Around-Sun Orbital Date Picker">
-      <div class="module-header">
-        <div class="module-title">
-          <span style="width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;"></span>
-          <span>Heliocentric 360° Date Orrery</span>
-        </div>
-        <span class="module-sub">1 Full Orbit = 1 Year</span>
+    <section class="form-section" aria-labelledby="label-dob">
+      <div class="field-header">
+        <label id="label-dob" class="field-label">Date of Birth</label>
+        <span id="dob-angle-meta" class="field-meta tabular">163.2° / 360°</span>
       </div>
 
-      <!-- Orbital Date Telemetry Readout -->
-      <div class="display-bezel">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-          <span id="orbit-full-date" class="font-display" style="font-size:20px;font-weight:800;color:#fde68a;">Fri, Nov 20, 2026</span>
-          <span id="orbit-iso-date" class="font-mono" style="font-size:12px;font-weight:700;color:#6ee7b7;">2026-11-20</span>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;color:#a8a29e;">
-          <span>Orbit Angle: <strong id="orbit-angle-readout" class="font-mono" style="color:#38bdf8;">320.0° / 360°</strong></span>
-          <span id="orbit-doy-readout" class="font-mono">Day 324 / 365</span>
-          <span id="orbit-season-readout" style="color:#fcd34d;font-weight:700;">Autumn</span>
-        </div>
+      <div class="readout-box tabular" aria-live="polite">
+        <span id="dob-formatted-text">June 15, 1998</span>
+        <span id="dob-iso-text" style="font-size:12px;font-weight:500;color:var(--text-muted);">1998-06-15</span>
       </div>
 
-      <!-- Interactive 360-Division Sun & Earth Orrery SVG -->
-      <div class="orrery-stage">
-        <svg id="orbital-svg" width="320" height="320" viewBox="0 0 320 320" role="application" aria-label="Drag Earth around the Sun across 360 degree divisions to pick a date">
-          <defs>
-            <radialGradient id="spaceBackdrop" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#172033" />
-              <stop offset="70%" stop-color="#0b101d" />
-              <stop offset="100%" stop-color="#05070e" />
-            </radialGradient>
-            <radialGradient id="sunCoreGrad" cx="40%" cy="35%" r="65%">
-              <stop offset="0%" stop-color="#fef9c3" />
-              <stop offset="45%" stop-color="#f59e0b" />
-              <stop offset="100%" stop-color="#b45309" />
-            </radialGradient>
-            <radialGradient id="earthSphereGrad" cx="32%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="#7dd3fc" />
-              <stop offset="50%" stop-color="#0284c7" />
-              <stop offset="100%" stop-color="#082f49" />
-            </radialGradient>
-          </defs>
+      <div class="widget-center">
+        <svg id="orbital-svg" width="280" height="280" viewBox="0 0 280 280" role="application" aria-label="Drag Earth around the Sun to set Date of Birth">
+          <!-- Outer Dial -->
+          <circle cx="140" cy="140" r="134" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
 
-          <!-- Deep Space Orrery Dial -->
-          <circle cx="160" cy="160" r="152" fill="url(#spaceBackdrop)" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+          <!-- 360 Degree Ticks & Month Markers -->
+          <g id="orbital-ticks-group"></g>
+          <g id="orbital-months-group"></g>
 
-          <!-- 360 Radial Degree Ticks & Month Labels -->
-          <g id="orrery-ticks-group"></g>
-          <g id="orrery-months-group"></g>
+          <!-- Dashed Orbit Ring (r = 90) -->
+          <circle cx="140" cy="140" r="90" fill="none" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="3 3" />
 
-          <!-- Dashed Orbital Path (r = 104) -->
-          <circle cx="160" cy="160" r="104" fill="none" stroke="rgba(148, 163, 184, 0.28)" stroke-width="1.5" stroke-dasharray="4 4" />
+          <!-- Active Swept Arc -->
+          <path id="orbital-arc" d="" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" opacity="0.7" />
 
-          <!-- Swept Orbital Progress Arc -->
-          <path id="orbit-progress-arc" d="" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" opacity="0.85" />
+          <!-- Radial Sightline -->
+          <line id="orbital-sightline" x1="140" y1="140" x2="140" y2="50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2" />
 
-          <!-- Radial Sightline from Sun to Earth -->
-          <line id="orbit-sightline" x1="160" y1="160" x2="160" y2="56" stroke="rgba(251, 191, 36, 0.45)" stroke-width="1.2" stroke-dasharray="3 3" />
+          <!-- Central #f59e0b Sun Displaying Year -->
+          <circle cx="140" cy="140" r="34" fill="rgba(245, 158, 11, 0.14)" />
+          <circle cx="140" cy="140" r="27" fill="#f59e0b" stroke="#d97706" stroke-width="1.2" />
+          <text x="140" y="133" text-anchor="middle" fill="#fffbeb" font-size="7.5" font-weight="700" letter-spacing="1">YEAR</text>
+          <text id="orbital-year-text" x="140" y="148" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800">1998</text>
 
-          <!-- Central Sun with Current Year -->
-          <circle cx="160" cy="160" r="42" fill="rgba(245, 158, 11, 0.16)" />
-          <circle cx="160" cy="160" r="32" fill="url(#sunCoreGrad)" stroke="#fef08a" stroke-width="1.5" />
-          <text x="160" y="153" text-anchor="middle" fill="#451a03" font-size="8" font-weight="800" letter-spacing="1.2">SOLAR YEAR</text>
-          <text id="sun-year-label" x="160" y="170" text-anchor="middle" fill="#1c1917" font-size="16" font-weight="900">2026</text>
-
-          <!-- Draggable Earth & Orbiting Moon -->
-          <g id="earth-handle-group" style="cursor: grab;">
-            <!-- Generous invisible touch/mouse grab zone -->
-            <circle id="earth-hit-zone" cx="160" cy="56" r="26" fill="transparent" />
-            <!-- Earth Sphere -->
-            <circle id="earth-body" cx="160" cy="56" r="13" fill="url(#earthSphereGrad)" stroke="#e0f2fe" stroke-width="1.5" />
-            <!-- Stylized Continents -->
-            <path id="earth-land" d="M 155 51 Q 160 49 163 53 Q 161 58 156 57 Z" fill="#34d399" opacity="0.9" />
-            <!-- Tiny Moon -->
-            <circle id="moon-body" cx="177" cy="48" r="3.2" fill="#e2e8f0" stroke="#64748b" stroke-width="0.8" />
+          <!-- Draggable #2563eb Earth Sphere -->
+          <g id="earth-drag-group" style="cursor: grab;">
+            <circle id="earth-hit-circle" cx="140" cy="50" r="22" fill="transparent" />
+            <circle id="earth-sphere" cx="140" cy="50" r="10.5" fill="#2563eb" stroke="#ffffff" stroke-width="2" />
           </g>
         </svg>
       </div>
 
-      <!-- Fine-Adjustment Orbit Controls -->
-      <div class="fine-grid">
-        <button type="button" id="orbit-prev-yr" class="fine-btn" title="Subtract 1 Full Revolution (-1 Year)">-1 Yr</button>
-        <button type="button" id="orbit-prev-deg" class="fine-btn" title="Step Counter-Clockwise (-1 Degree)">-1° / Day</button>
-        <button type="button" id="orbit-today" class="fine-btn fine-btn-accent" title="Reset Earth to Today's Orbit Position">Today</button>
-        <button type="button" id="orbit-next-deg" class="fine-btn" title="Step Clockwise (+1 Degree)">+1° / Day</button>
-        <button type="button" id="orbit-next-yr" class="fine-btn" title="Add 1 Full Revolution (+1 Year)">+1 Yr</button>
+      <div class="btn-row-grid-4">
+        <button type="button" id="btn-dob-prev-yr" class="btn btn-outline">-1 Yr</button>
+        <button type="button" id="btn-dob-prev-day" class="btn btn-outline">-1 Day</button>
+        <button type="button" id="btn-dob-next-day" class="btn btn-outline">+1 Day</button>
+        <button type="button" id="btn-dob-next-yr" class="btn btn-outline">+1 Yr</button>
       </div>
+
+      <p id="err-dob" class="field-error" role="alert"></p>
     </section>
 
     <!-- ======================================================================
-         MODULE 3: SKATEBOARD NAME ENTRY BOX (BRICKLESS MULTI-LETTER SPAWNING)
+         4. PREFERRED QUANTITY (ACCELERATOR & BRAKE SPEEDOMETER + DONE BUTTON)
          ====================================================================== -->
-    <section id="name-entry-housing" class="chassis-card" aria-label="Skateboard Falling Letters Name Entry">
-      <div class="module-header">
-        <div class="module-title">
-          <span style="width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 8px #38bdf8;"></span>
-          <span>Name Entry Skate Arena</span>
-        </div>
-        <span class="module-sub">← / → Steer Skateboard</span>
+    <section class="form-section" aria-labelledby="label-quantity">
+      <div class="field-header">
+        <label id="label-quantity" class="field-label">Preferred Quantity</label>
+        <span id="qty-status-pill" class="status-pill" data-status="Idle">Idle</span>
       </div>
 
-      <!-- 16-Slot Framed Name Box with Blinking Cursor -->
-      <div class="display-bezel" style="margin-bottom:12px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-          <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:#7dd3fc;font-weight:700;">Operator / Recipient Name</span>
-          <span id="name-char-counter" class="font-mono" style="font-size:11px;color:#a8a29e;font-weight:700;">0 / 16 chars</span>
+      <div id="qty-readout-box" class="readout-box tabular" aria-live="polite">
+        <span id="qty-readout-text">0 units</span>
+        <span id="qty-readout-hint" style="font-size:12px;font-weight:500;color:var(--text-muted);">Press Done to lock in</span>
+      </div>
+
+      <!-- Minimalist 280x165 Semicircular SVG Speedometer Gauge -->
+      <div class="widget-center">
+        <svg id="speedometer-svg" width="280" height="165" viewBox="0 0 280 165" role="img" aria-label="Preferred quantity speedometer gauge from 0 to 100 units">
+          <!-- Subtle Outer Gauge Backing -->
+          <path d="M 36 136 A 104 104 0 0 1 244 136" fill="none" stroke="#e2e8f0" stroke-width="10" stroke-linecap="round" />
+
+          <!-- Active Progress Arc -->
+          <path id="speedo-progress-arc" d="" fill="none" stroke="#2563eb" stroke-width="10" stroke-linecap="round" />
+
+          <!-- Ticks & Numeric Labels (0 to 100) -->
+          <g id="speedo-ticks-group"></g>
+          <g id="speedo-labels-group"></g>
+
+          <!-- Central Digital Readout -->
+          <text id="speedo-digital-val" x="140" y="96" text-anchor="middle" fill="#0f172a" font-size="26" font-weight="800" class="tabular">0</text>
+          <text x="140" y="111" text-anchor="middle" fill="#64748b" font-size="9.5" font-weight="700" letter-spacing="1.2">UNITS</text>
+
+          <!-- Animated #0f172a Needle & Pivot Cap (Centered at 140, 136) -->
+          <g id="speedo-needle-group" transform="translate(140, 136) rotate(-90)">
+            <polygon points="-3.2,0 0,-92 3.2,0" fill="#0f172a" />
+          </g>
+          <circle cx="140" cy="136" r="8" fill="#0f172a" />
+          <circle cx="140" cy="136" r="3" fill="#ffffff" />
+        </svg>
+      </div>
+
+      <!-- Automotive Brake & Accelerator Pedals -->
+      <div class="btn-row-grid-2">
+        <button type="button" id="btn-pedal-brake" class="pedal-btn pedal-brake" aria-label="Hold to Brake and decrease quantity">
+          <span class="pedal-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+            <span>Hold to Brake</span>
+            <span class="kbd-badge">S</span>
+          </span>
+          <span class="pedal-hint">Rapidly decreases quantity</span>
+        </button>
+
+        <button type="button" id="btn-pedal-accel" class="pedal-btn pedal-accel" aria-label="Hold to Accelerate and increase quantity">
+          <span class="pedal-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+            <span>Hold to Accelerate</span>
+            <span class="kbd-badge">W</span>
+          </span>
+          <span class="pedal-hint">Increases quantity (coasts when released)</span>
+        </button>
+      </div>
+
+      <!-- Done (Lock In) & Unlock / Reset Controls -->
+      <div class="btn-row-grid-2">
+        <button type="button" id="btn-qty-done" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Done</span>
+        </button>
+
+        <button type="button" id="btn-qty-reset" class="btn btn-outline">
+          <span id="qty-reset-label">Unlock / Reset</span>
+        </button>
+      </div>
+
+      <p id="err-qty" class="field-error" role="alert"></p>
+    </section>
+
+    <!-- ======================================================================
+         5. FORM SUBMISSION & CONFIRMATION CARD
+         ====================================================================== -->
+    <footer class="submit-footer">
+      <button type="button" id="btn-submit-form" class="btn btn-primary btn-submit">
+        Submit Registration
+      </button>
+
+      <div id="confirmation-card" class="confirmation-card hidden" role="status" aria-live="polite">
+        <div class="confirmation-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Registration Submitted</span>
         </div>
 
-        <!-- 16 Character Slots -->
-        <div id="name-tiles-row" class="name-tiles-row font-display" aria-live="polite">
-          <!-- Populated dynamically by SkateboardNamePicker -->
-        </div>
-
-        <!-- Arcade Status & Catch Counter -->
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;">
-          <div style="display:flex;align-items:center;gap:6px;overflow:hidden;color:#7dd3fc;">
-            <span id="arcade-status-dot" style="width:8px;height:8px;border-radius:50%;background:#38bdf8;flex-shrink:0;"></span>
-            <span id="arcade-status-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Press START to spawn letter waves &amp; steer with ← / →</span>
+        <div class="summary-list tabular">
+          <div class="summary-item">
+            <span class="summary-key">Full Name</span>
+            <span id="confirm-name" class="summary-val">—</span>
           </div>
-          <span id="arcade-caught-badge" class="font-mono" style="font-size:10px;color:#fcd34d;flex-shrink:0;">CATCH: 0</span>
+          <div class="summary-item">
+            <span class="summary-key">Phone Number</span>
+            <span id="confirm-phone" class="summary-val">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-key">Date of Birth</span>
+            <span id="confirm-dob" class="summary-val">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-key">Preferred Quantity</span>
+            <span id="confirm-qty" class="summary-val">—</span>
+          </div>
         </div>
-      </div>
 
-      <!-- Brickless Falling-Letter Skate Arena Canvas -->
-      <div class="arena-frame">
-        <canvas id="arcade-canvas" height="245" aria-label="Falling letters and skateboard catcher"></canvas>
-      </div>
-
-      <!-- On-Screen Left / Right Steering Buttons -->
-      <div class="steer-grid">
-        <button type="button" id="btn-skate-left" class="fine-btn" style="padding:10px;font-size:12px;" aria-label="Move skateboard left">
-          ◀ Steer Left (←)
-        </button>
-        <button type="button" id="btn-skate-right" class="fine-btn" style="padding:10px;font-size:12px;" aria-label="Move skateboard right">
-          Steer Right (→) ▶
-        </button>
-      </div>
-
-      <!-- Start / Pause, Delete Last Letter, and Clear Controls -->
-      <div class="arcade-btn-grid">
-        <button type="button" id="btn-arcade-start" class="vintage-btn btn-emerald ready-glow">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="6 4 20 12 6 20 6 4"/>
-          </svg>
-          <span id="arcade-start-label">Start</span>
-        </button>
-
-        <button type="button" id="btn-name-delete" class="vintage-btn btn-ivory" disabled>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
-            <line x1="18" y1="9" x2="12" y2="15"/>
-            <line x1="12" y1="9" x2="18" y2="15"/>
-          </svg>
-          <span>Delete Last</span>
-        </button>
-
-        <button type="button" id="btn-name-clear" class="vintage-btn btn-crimson" disabled>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="3 6 5 6 21 6"/>
-            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-          </svg>
-          <span>Clear</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         UNIFIED DISPATCH SUMMARY FOOTER
-         ====================================================================== -->
-    <footer class="summary-footer" aria-label="Unified Dispatch Summary">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);">
-        <span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#fcd34d;">Unified Dispatch Summary</span>
-        <span class="font-mono" style="font-size:10px;color:#78716c;">TELEGRAPH • ORRERY • SKATE</span>
-      </div>
-
-      <div class="engraved-plate">
-        <div class="summary-row">
-          <span class="summary-label">Name</span>
-          <span id="summary-name" class="font-mono" style="font-weight:700;color:#7dd3fc;">— (Unassigned) —</span>
+        <div class="btn-row-grid-2">
+          <button type="button" id="btn-copy-details" class="btn btn-outline">
+            <span id="copy-details-label">Copy Details</span>
+          </button>
+          <button type="button" id="btn-reset-form" class="btn btn-subtle">
+            Reset Form
+          </button>
         </div>
-        <div class="summary-row">
-          <span class="summary-label">Phone</span>
-          <span id="summary-phone" class="font-mono" style="font-weight:700;color:#fde68a;">(___) ___-____</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-label">Orbit Date</span>
-          <span id="summary-date" class="font-mono" style="font-weight:700;color:#6ee7b7;">2026-11-20 (320.0° / 360°)</span>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
-        <button type="button" id="btn-copy-all" class="vintage-btn btn-ivory">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-          <span id="copy-btn-label">Copy All Details</span>
-        </button>
-
-        <button type="button" id="btn-submit-dispatch" class="vintage-btn btn-emerald">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2L11 13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
-          <span>Submit / Ring Out</span>
-        </button>
-      </div>
-
-      <div id="dispatch-confirm-banner" class="confirm-banner hidden" role="status">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#6ee7b7;">Dispatch Transmitted &amp; Confirmed</span>
-          <button type="button" id="btn-dismiss-banner" style="background:none;border:none;color:#a7f3d0;font-size:10px;text-decoration:underline;cursor:pointer;">Dismiss</button>
-        </div>
-        <p id="dispatch-confirm-text" class="font-mono" style="font-size:11px;color:#fef3c7;word-break:break-word;"></p>
       </div>
     </footer>
   </main>
@@ -994,16 +847,14 @@
 
     /**
      * ==========================================================================
-     * 1. WEB AUDIO MECHANICAL & ARCADE SYNTHESIZER
-     * Generates all rotary clicks, governor pulses, twin-bell ringtones, brass
-     * gear ticks, wave spawn pops, and skateboard catch chimes with zero external URLs.
+     * 1. SELF-CONTAINED WEB AUDIO SYNTHESIZER
+     * Provides subtle, clean tactile audio cues with zero external sound URLs.
      * ==========================================================================
      */
-    class RetroAudioEngine {
+    class MinimalSoundEngine {
       constructor() {
         this.ctx = null;
         this.muted = false;
-        this.ringInterval = null;
       }
 
       ensureContext() {
@@ -1020,408 +871,652 @@
         return this.ctx;
       }
 
-      setMuted(isMuted) {
-        this.muted = isMuted;
-        if (this.muted) {
-          this.stopRingtone();
-        }
+      setMuted(muted) {
+        this.muted = muted;
       }
 
-      /** Mechanical ratchet click while winding the rotary dial */
-      playRatchetClick() {
+      playClick(freq = 540, duration = 0.025, volume = 0.08) {
         const ctx = this.ensureContext();
         if (!ctx) return;
         const now = ctx.currentTime;
         const osc = ctx.createOscillator();
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(920, now);
-        osc.frequency.exponentialRampToValueAtTime(280, now + 0.018);
+        osc.frequency.setValueAtTime(freq, now);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.45, now + duration);
 
         const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.14, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+        gain.gain.setValueAtTime(volume, now);
+        gain.gain.exponentialRampToValueAtTime(0.0008, now + duration + 0.004);
 
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(now);
-        osc.stop(now + 0.022);
+        osc.stop(now + duration + 0.006);
       }
 
-      /** Metallic clink when finger reaches the chrome finger stop */
-      playFingerStopClink() {
+      playRatchetTick() {
+        this.playClick(860, 0.016, 0.065);
+      }
+
+      playPulseTick() {
+        this.playClick(620, 0.022, 0.085);
+      }
+
+      playGearTick() {
+        this.playClick(1250, 0.012, 0.045);
+      }
+
+      playSpeedoTick(value) {
+        const pitch = 420 + Math.min(100, Math.max(0, value)) * 5.2;
+        this.playClick(pitch, 0.014, 0.04);
+      }
+
+      playCatchChime() {
         const ctx = this.ensureContext();
         if (!ctx) return;
         const now = ctx.currentTime;
-        [2400, 3850].forEach((freq) => {
+        [587.33, 880].forEach((freq, idx) => {
+          const t = now + idx * 0.05;
           const osc = ctx.createOscillator();
           osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq, now);
+          osc.frequency.setValueAtTime(freq, t);
+
           const gain = ctx.createGain();
-          gain.gain.setValueAtTime(0.09, now);
-          gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.07);
+          gain.gain.setValueAtTime(0.09, t);
+          gain.gain.exponentialRampToValueAtTime(0.0008, t + 0.11);
+
           osc.connect(gain);
           gain.connect(ctx.destination);
-          osc.start(now);
-          osc.stop(now + 0.075);
+          osc.start(t);
+          osc.stop(t + 0.12);
         });
       }
 
-      /** Governor return pulse tick (1 to 10 pulses per dialed digit) */
-      playPulseTick() {
+      playConfirmChime() {
         const ctx = this.ensureContext();
         if (!ctx) return;
         const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(640, now);
-        osc.frequency.exponentialRampToValueAtTime(190, now + 0.024);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.16, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.026);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.028);
-      }
-
-      /** Tactile push-button click */
-      playButtonPress() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(520, now);
-        osc.frequency.exponentialRampToValueAtTime(220, now + 0.035);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.14, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.038);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.04);
-      }
-
-      /** Heavy Bakelite receiver clunk on hang-up / clear */
-      playClunk() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(175, now);
-        osc.frequency.exponentialRampToValueAtTime(58, now + 0.12);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.28, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.14);
-      }
-
-      /** Classic twin-bell brass telephone ringtone */
-      startRingtone() {
-        this.stopRingtone();
-        const ringBurst = () => {
-          const ctx = this.ensureContext();
-          if (!ctx) return;
-          const now = ctx.currentTime;
-          for (let i = 0; i < 18; i++) {
-            const t = now + i * 0.055;
-            const osc = ctx.createOscillator();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(i % 2 === 0 ? 1320 : 1640, t);
-            const gain = ctx.createGain();
-            gain.gain.setValueAtTime(0.13, t);
-            gain.gain.exponentialRampToValueAtTime(0.001, t + 0.048);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(t);
-            osc.stop(t + 0.05);
-          }
-        };
-        ringBurst();
-        this.ringInterval = setInterval(ringBurst, 2600);
-      }
-
-      stopRingtone() {
-        if (this.ringInterval) {
-          clearInterval(this.ringInterval);
-          this.ringInterval = null;
-        }
-      }
-
-      /** Subtle brass escapement tick as Earth crosses each of the 360 divisions */
-      playGearTick() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(1450 + Math.random() * 140, now);
-        osc.frequency.exponentialRampToValueAtTime(480, now + 0.012);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.08, now);
-        gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.013);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.015);
-      }
-
-      /** Multi-letter wave spawn pop at the top of the skate arena */
-      playWaveSpawnPop() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(360, now);
-        osc.frequency.exponentialRampToValueAtTime(720, now + 0.055);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.075, now);
-        gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.06);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.065);
-      }
-
-      /** Bright dual-tone arcade chime when skateboard catches a falling letter */
-      playArcadeCatch() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        [587.33, 880].forEach((freq, i) => {
-          const t = now + i * 0.055;
+        [523.25, 659.25, 783.99].forEach((freq, idx) => {
+          const t = now + idx * 0.065;
           const osc = ctx.createOscillator();
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(freq, t);
 
           const gain = ctx.createGain();
-          gain.gain.setValueAtTime(0.18, t);
-          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+          gain.gain.setValueAtTime(0.11, t);
+          gain.gain.exponentialRampToValueAtTime(0.0008, t + 0.18);
 
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(t);
-          osc.stop(t + 0.13);
-        });
-      }
-
-      /** Descending blip when deleting the last letter */
-      playArcadeDelete() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(420, now);
-        osc.frequency.exponentialRampToValueAtTime(160, now + 0.09);
-
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.12, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.095);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.1);
-      }
-
-      /** Celebratory 4-note dispatch fanfare */
-      playDispatchChime() {
-        const ctx = this.ensureContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-        [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
-          const t = now + i * 0.075;
-          const osc = ctx.createOscillator();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, t);
-
-          const gain = ctx.createGain();
-          gain.gain.setValueAtTime(0.2, t);
-          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.24);
-
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(t);
-          osc.stop(t + 0.25);
+          osc.stop(t + 0.19);
         });
       }
     }
 
     /**
      * ==========================================================================
-     * 2. MODULE 1: 10-DIGIT VINTAGE ROTARY LANDLINE TELEPHONE
+     * 2. FIELD 1: FULL NAME (BRICKLESS MULTI-WAVE SKATEBOARD LETTER CATCHER)
      * ==========================================================================
      */
-    class RotaryTelephoneApp {
-      constructor(sharedAudio, onStateChange) {
-        this.audio = sharedAudio;
-        this.onStateChange = onStateChange || (() => {});
+    class FullNameSkatePicker {
+      constructor(audio, onChange) {
+        this.audio = audio;
+        this.onChange = onChange || (() => {});
+        this.MAX_CHARS = 16;
+        this.letters = [];
+        this.state = 'IDLE'; // 'IDLE' | 'RUNNING' | 'PAUSED'
 
+        this.canvas = document.getElementById('name-canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.displayContent = document.getElementById('name-display-content');
+        this.counterEl = document.getElementById('name-counter');
+        this.errorEl = document.getElementById('err-name');
+
+        this.btnStart = document.getElementById('btn-name-start');
+        this.startLabel = document.getElementById('name-start-label');
+        this.btnDelete = document.getElementById('btn-name-delete');
+        this.btnClear = document.getElementById('btn-name-clear');
+        this.btnLeft = document.getElementById('btn-skate-left');
+        this.btnRight = document.getElementById('btn-skate-right');
+
+        this.board = {
+          x: 220,
+          width: 78,
+          vx: 0,
+          wheelAngle: 0
+        };
+
+        this.keys = { left: false, right: false };
+        this.pointerTargetX = null;
+        this.fallingTiles = [];
+        this.waveTimer = 0;
+        this.lastTime = performance.now();
+
+        this.resizeCanvas();
+        this.bindEvents();
+        this.updateUI();
+        this.startLoop();
+      }
+
+      resizeCanvas() {
+        const rect = this.canvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = Math.max(260, Math.round(rect.width || 480));
+        const h = 210;
+        this.canvas.width = w * dpr;
+        this.canvas.height = h * dpr;
+        this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        this.w = w;
+        this.h = h;
+        const half = this.board.width / 2;
+        this.board.x = Math.max(half + 8, Math.min(w - half - 8, this.board.x));
+      }
+
+      bindEvents() {
+        this.btnStart.addEventListener('click', () => {
+          this.audio.ensureContext();
+          this.audio.playClick();
+          this.clearError();
+
+          if (this.state === 'RUNNING') {
+            this.state = 'PAUSED';
+          } else {
+            if (this.letters.length >= this.MAX_CHARS) return;
+            this.state = 'RUNNING';
+            this.waveTimer = 0;
+            if (this.fallingTiles.length < 3) {
+              this.spawnWave(4);
+            }
+          }
+          this.updateUI();
+        });
+
+        this.btnDelete.addEventListener('click', () => {
+          this.audio.playClick(380, 0.03, 0.07);
+          this.deleteLast();
+        });
+
+        this.btnClear.addEventListener('click', () => {
+          this.audio.playClick(320, 0.04, 0.08);
+          this.reset();
+        });
+
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            if (this.state === 'RUNNING') e.preventDefault();
+            if (e.key === 'ArrowLeft') this.keys.left = true;
+            if (e.key === 'ArrowRight') this.keys.right = true;
+          } else if (e.key === 'a' || e.key === 'A') {
+            this.keys.left = true;
+          } else if (e.key === 'd' || e.key === 'D') {
+            this.keys.right = true;
+          }
+        });
+
+        window.addEventListener('keyup', (e) => {
+          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = false;
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = false;
+        });
+
+        const bindHold = (btn, dir) => {
+          const start = (e) => {
+            e.preventDefault();
+            this.audio.ensureContext();
+            this.keys[dir] = true;
+          };
+          const stop = () => {
+            this.keys[dir] = false;
+          };
+          btn.addEventListener('pointerdown', start);
+          btn.addEventListener('pointerup', stop);
+          btn.addEventListener('pointerleave', stop);
+          btn.addEventListener('pointercancel', stop);
+        };
+        bindHold(this.btnLeft, 'left');
+        bindHold(this.btnRight, 'right');
+
+        this.canvas.addEventListener('pointerdown', (e) => {
+          this.audio.ensureContext();
+          const rect = this.canvas.getBoundingClientRect();
+          this.pointerTargetX = e.clientX - rect.left;
+        });
+        this.canvas.addEventListener('pointermove', (e) => {
+          if (this.pointerTargetX !== null) {
+            const rect = this.canvas.getBoundingClientRect();
+            this.pointerTargetX = e.clientX - rect.left;
+          }
+        });
+        const stopPointer = () => {
+          this.pointerTargetX = null;
+        };
+        this.canvas.addEventListener('pointerup', stopPointer);
+        this.canvas.addEventListener('pointercancel', stopPointer);
+
+        window.addEventListener('resize', () => this.resizeCanvas());
+      }
+
+      pickCharacter(usedSet) {
+        const pool = 'AAAAEEEEIIIIOOOOUUUBBCDDFFGGHHJKLLMMNNPPQRRSSSTTTVWXYZ';
+        if (
+          this.letters.length > 0 &&
+          this.letters.length < this.MAX_CHARS - 1 &&
+          this.letters[this.letters.length - 1] !== ' ' &&
+          !usedSet.has(' ') &&
+          Math.random() < 0.14
+        ) {
+          return ' ';
+        }
+        for (let i = 0; i < 16; i++) {
+          const ch = pool[Math.floor(Math.random() * pool.length)];
+          if (!usedSet.has(ch)) return ch;
+        }
+        return pool[Math.floor(Math.random() * pool.length)];
+      }
+
+      spawnWave(forcedCount = null) {
+        const w = this.w || 480;
+        const count = forcedCount || (3 + Math.floor(Math.random() * 3)); // 3 to 5 letters
+        const lanes = Math.max(count, 5);
+        const margin = 26;
+        const laneW = (w - margin * 2) / lanes;
+
+        const indices = Array.from({ length: lanes }, (_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+
+        const used = new Set();
+        indices.slice(0, count).forEach((laneIdx, idx) => {
+          const char = this.pickCharacter(used);
+          used.add(char);
+          const tileW = char === ' ' ? 44 : 28;
+          const tileH = 24;
+          const centerX = margin + (laneIdx + 0.5) * laneW;
+          const jitter = (Math.random() - 0.5) * Math.min(10, laneW * 0.22);
+          const x = Math.max(tileW / 2 + 8, Math.min(w - tileW / 2 - 8, centerX + jitter));
+
+          this.fallingTiles.push({
+            x,
+            y: 18 + (idx % 2) * 8,
+            w: tileW,
+            h: tileH,
+            char,
+            vy: 64 + Math.random() * 34,
+            swayPhase: Math.random() * Math.PI * 2,
+            scale: 0.3
+          });
+        });
+
+        this.audio.playClick(680, 0.02, 0.035);
+      }
+
+      deleteLast() {
+        if (this.letters.length === 0) return;
+        this.letters.pop();
+        this.updateUI();
+      }
+
+      reset() {
+        this.letters = [];
+        this.fallingTiles = [];
+        this.state = 'IDLE';
+        this.clearError();
+        this.updateUI();
+      }
+
+      getValue() {
+        return this.letters.join('');
+      }
+
+      setError(msg) {
+        this.errorEl.textContent = msg || '';
+      }
+
+      clearError() {
+        this.errorEl.textContent = '';
+      }
+
+      escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      updateUI() {
+        const count = this.letters.length;
+        this.counterEl.textContent = `${count} / ${this.MAX_CHARS}`;
+
+        if (count === 0) {
+          this.displayContent.innerHTML =
+            '<span class="readout-placeholder">Catch falling letters below</span><span class="caret"></span>';
+        } else {
+          const rendered = this.escapeHtml(this.letters.join('')).replace(/ /g, '&nbsp;');
+          const caretHtml = count < this.MAX_CHARS ? '<span class="caret"></span>' : '';
+          this.displayContent.innerHTML = `${rendered}${caretHtml}`;
+        }
+
+        if (this.state === 'RUNNING') {
+          this.startLabel.textContent = 'Pause';
+        } else if (this.state === 'PAUSED') {
+          this.startLabel.textContent = 'Resume';
+        } else {
+          this.startLabel.textContent = 'Start';
+        }
+
+        this.btnStart.disabled = count >= this.MAX_CHARS;
+        this.btnDelete.disabled = count === 0;
+        this.btnClear.disabled = count === 0 && this.fallingTiles.length === 0;
+        this.onChange();
+      }
+
+      startLoop() {
+        const step = (now) => {
+          const dt = Math.min(0.05, (now - this.lastTime) / 1000);
+          this.lastTime = now;
+          this.update(dt, now * 0.001);
+          this.draw();
+          requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      update(dt, tSec) {
+        const w = this.w || 480;
+        const h = this.h || 210;
+        const half = this.board.width / 2;
+        const minX = half + 8;
+        const maxX = w - half - 8;
+
+        const speed = 320;
+        let dir = 0;
+        if (this.keys.left) dir -= 1;
+        if (this.keys.right) dir += 1;
+
+        if (dir !== 0) {
+          this.board.vx = dir * speed;
+          this.board.x += this.board.vx * dt;
+        } else if (this.pointerTargetX !== null) {
+          const diff = this.pointerTargetX - this.board.x;
+          this.board.vx = Math.max(-speed * 1.4, Math.min(speed * 1.4, diff * 13));
+          this.board.x += this.board.vx * dt;
+        } else {
+          this.board.vx *= Math.pow(0.001, dt);
+          if (Math.abs(this.board.vx) < 2) this.board.vx = 0;
+          this.board.x += this.board.vx * dt;
+        }
+
+        this.board.x = Math.max(minX, Math.min(maxX, this.board.x));
+        this.board.wheelAngle += this.board.vx * dt * 0.14;
+
+        if (this.state !== 'RUNNING') return;
+
+        this.waveTimer += dt;
+        if (this.waveTimer >= 1.25 && this.fallingTiles.length <= 7) {
+          this.waveTimer = 0;
+          this.spawnWave();
+        }
+
+        const deckTop = h - 28;
+        const deckBottom = h - 12;
+
+        for (let i = this.fallingTiles.length - 1; i >= 0; i--) {
+          const tile = this.fallingTiles[i];
+          tile.scale = Math.min(1, tile.scale + dt * 5.5);
+          tile.y += tile.vy * dt;
+          tile.x += Math.cos(tSec * 2.4 + tile.swayPhase) * 6 * dt;
+          tile.x = Math.max(tile.w / 2 + 6, Math.min(w - tile.w / 2 - 6, tile.x));
+
+          const bottom = tile.y + tile.h / 2;
+          const top = tile.y - tile.h / 2;
+          const hitX = Math.abs(tile.x - this.board.x) <= half + tile.w * 0.4;
+          const hitY = bottom >= deckTop && top <= deckBottom;
+
+          if (hitX && hitY) {
+            this.fallingTiles.splice(i, 1);
+            this.audio.playCatchChime();
+            this.clearError();
+
+            if (this.letters.length < this.MAX_CHARS) {
+              this.letters.push(tile.char);
+              if (this.letters.length >= this.MAX_CHARS) {
+                this.state = 'PAUSED';
+              }
+              this.updateUI();
+            }
+            continue;
+          }
+
+          if (top > h + 8) {
+            this.fallingTiles.splice(i, 1);
+          }
+        }
+      }
+
+      draw() {
+        const w = this.w || 480;
+        const h = this.h || 210;
+        const ctx = this.ctx;
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, w, h);
+
+        // Subtle vertical lane lines
+        ctx.strokeStyle = '#f1f5f9';
+        ctx.lineWidth = 1;
+        for (let gx = 32; gx < w; gx += 32) {
+          ctx.beginPath();
+          ctx.moveTo(gx, 0);
+          ctx.lineTo(gx, h);
+          ctx.stroke();
+        }
+
+        // Falling Letter / Space Tiles
+        this.fallingTiles.forEach((tile) => {
+          ctx.save();
+          ctx.translate(tile.x, tile.y);
+          ctx.scale(tile.scale, tile.scale);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.strokeStyle = '#cbd5e1';
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          ctx.roundRect(-tile.w / 2, -tile.h / 2, tile.w, tile.h, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#0f172a';
+          ctx.font = tile.char === ' ' ? '700 9px sans-serif' : '700 13px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(tile.char === ' ' ? 'SPACE' : tile.char, 0, 0.5);
+          ctx.restore();
+        });
+
+        // Subtle Floor Line
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(10, h - 8);
+        ctx.lineTo(w - 10, h - 8);
+        ctx.stroke();
+
+        // Sleek #0f172a Minimalist Skateboard
+        const half = this.board.width / 2;
+        const deckY = h - 22;
+        const tilt = Math.max(-0.06, Math.min(0.06, this.board.vx * 0.00018));
+
+        ctx.save();
+        ctx.translate(this.board.x, deckY);
+        ctx.rotate(tilt);
+
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(-half, -4);
+        ctx.quadraticCurveTo(-half + 9, 1, -half + 16, 1);
+        ctx.lineTo(half - 16, 1);
+        ctx.quadraticCurveTo(half - 9, 1, half, -4);
+        ctx.stroke();
+
+        [-half + 18, half - 18].forEach((wx) => {
+          ctx.fillStyle = '#64748b';
+          ctx.fillRect(wx - 4, 3, 8, 2.5);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.strokeStyle = '#0f172a';
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.arc(wx, 9, 5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+        });
+        ctx.restore();
+
+        // Subtle Idle / Paused Prompt
+        if (this.state !== 'RUNNING') {
+          ctx.save();
+          ctx.fillStyle = 'rgba(248, 250, 252, 0.72)';
+          ctx.fillRect(0, 52, w, 72);
+          ctx.fillStyle = '#64748b';
+          ctx.font = '600 12px sans-serif';
+          ctx.textAlign = 'center';
+          const msg =
+            this.state === 'PAUSED'
+              ? 'Paused — Press Resume to continue'
+              : 'Press Start to drop letter waves';
+          ctx.fillText(msg, w / 2, 92);
+          ctx.restore();
+        }
+      }
+    }
+
+    /**
+     * ==========================================================================
+     * 3. FIELD 2: PHONE NUMBER (10-DIGIT MINIMALIST ROTARY DIAL)
+     * Finger stop sits at 135° clockwise from top (45° from +X axis).
+     * ==========================================================================
+     */
+    class RotaryPhonePicker {
+      constructor(audio, onChange) {
+        this.audio = audio;
+        this.onChange = onChange || (() => {});
         this.MAX_DIGITS = 10;
-        this.dialedDigits = [];
-        this.mode = 'IDLE'; // 'IDLE' | 'DRAGGING' | 'AUTO_WIND' | 'RETURNING' | 'CALLING'
+        this.digits = [];
+        this.mode = 'IDLE'; // 'IDLE' | 'DRAGGING' | 'AUTO_WIND' | 'RETURNING'
 
-        // Finger stop sits at 52 deg clockwise from +X axis (4:00 position)
-        this.STOP_ANGLE_DEG = 52;
-        this.HOLE_RADIUS = 104;
-        this.HOLE_SIZE = 20;
+        // 135 degrees clockwise from top = 45 degrees clockwise from +X axis
+        this.STOP_ANGLE_SVG = 45;
+        this.HOLE_RADIUS = 84;
+        this.HOLE_SIZE = 16.5;
 
-        // 10 digits arranged counterclockwise from top-right (1) to bottom (0)
+        // Counterclockwise digits 1..0 placed before the 45° (135° from top) stop
         const layout = [
-          { digit: 1, letters: '',    angle: 350 },
-          { digit: 2, letters: 'ABC', angle: 322 },
-          { digit: 3, letters: 'DEF', angle: 294 },
-          { digit: 4, letters: 'GHI', angle: 266 },
-          { digit: 5, letters: 'JKL', angle: 238 },
-          { digit: 6, letters: 'MNO', angle: 210 },
-          { digit: 7, letters: 'PRS', angle: 182 },
-          { digit: 8, letters: 'TUV', angle: 154 },
-          { digit: 9, letters: 'WXY', angle: 126 },
-          { digit: 0, letters: 'OPR', angle: 98  }
+          { digit: 1, letters: '',    svgAngle: 345 }, // 75° cw from top
+          { digit: 2, letters: 'ABC', svgAngle: 317 }, // 47° cw from top
+          { digit: 3, letters: 'DEF', svgAngle: 289 }, // 19° cw from top
+          { digit: 4, letters: 'GHI', svgAngle: 261 }, // 351° cw from top
+          { digit: 5, letters: 'JKL', svgAngle: 233 }, // 323° cw from top
+          { digit: 6, letters: 'MNO', svgAngle: 205 }, // 295° cw from top
+          { digit: 7, letters: 'PRS', svgAngle: 177 }, // 267° cw from top
+          { digit: 8, letters: 'TUV', svgAngle: 149 }, // 239° cw from top
+          { digit: 9, letters: 'WXY', svgAngle: 121 }, // 211° cw from top
+          { digit: 0, letters: 'OPR', svgAngle: 93  }  // 183° cw from top
         ];
 
-        this.DIGITS_CONFIG = layout.map((item) => {
+        this.DIGITS = layout.map((item) => {
           const pulses = item.digit === 0 ? 10 : item.digit;
-          const maxSweep = ((this.STOP_ANGLE_DEG - item.angle + 360) % 360);
+          const sweep = (this.STOP_ANGLE_SVG - item.svgAngle + 360) % 360;
           return {
             ...item,
             pulses,
-            maxSweep: maxSweep < 25 ? maxSweep + 360 : maxSweep
+            maxSweep: sweep < 25 ? sweep + 360 : sweep
           };
         });
 
-        // DOM references
-        this.phoneBody = document.getElementById('phone-housing');
-        this.plungerLeft = document.getElementById('plunger-left');
-        this.plungerRight = document.getElementById('plunger-right');
-        this.flipRow = document.getElementById('flip-cards-row');
-        this.digitCounter = document.getElementById('digit-counter');
-        this.statusDot = document.getElementById('phone-status-dot');
-        this.statusText = document.getElementById('phone-status-text');
+        this.svg = document.getElementById('rotary-svg');
+        this.numbersGroup = document.getElementById('rotary-numbers-group');
+        this.maskHolesGroup = document.getElementById('rotary-mask-holes');
+        this.holeRimsGroup = document.getElementById('rotary-hole-rims');
+        this.wheelGroup = document.getElementById('rotary-wheel-group');
 
-        this.svg = document.getElementById('rotary-dial-svg');
-        this.stationaryGroup = document.getElementById('stationary-numbers-group');
-        this.maskHolesGroup = document.getElementById('mask-holes-group');
-        this.holeRimsGroup = document.getElementById('hole-rims-group');
-        this.fingerWheelGroup = document.getElementById('finger-wheel-group');
+        this.displayTextEl = document.getElementById('phone-display-text');
+        this.hintTextEl = document.getElementById('phone-hint-text');
+        this.counterEl = document.getElementById('phone-counter');
+        this.errorEl = document.getElementById('err-phone');
 
-        this.btnUndo = document.getElementById('btn-undo-digit');
-        this.btnHangUp = document.getElementById('btn-hang-up');
-        this.btnCall = document.getElementById('btn-place-call');
-        this.activeCallBanner = document.getElementById('active-call-banner');
-        this.callBannerNumber = document.getElementById('call-banner-number');
-        this.callBannerDate = document.getElementById('call-banner-date');
-        this.btnBannerHangup = document.getElementById('btn-banner-hangup');
+        this.btnUndo = document.getElementById('btn-phone-undo');
+        this.btnClear = document.getElementById('btn-phone-clear');
 
-        // Active dial motion state
         this.currentRotation = 0;
-        this.activeConfig = null;
-        this.dragStartPointerAngle = 0;
+        this.activeCfg = null;
+        this.dragStartAngle = 0;
+        this.dragStartTime = 0;
+        this.maxDragAngle = 0;
         this.lastRatchetStep = 0;
-        this.hitStopClinked = false;
 
-        this.buildFlipCards();
         this.buildDialSVG();
         this.bindEvents();
         this.updateUI();
       }
 
-      buildFlipCards() {
-        this.flipRow.innerHTML = '';
-        this.cardEls = [];
-
-        const addSep = (txt) => {
-          const span = document.createElement('span');
-          span.className = 'flip-sep';
-          span.textContent = txt;
-          this.flipRow.appendChild(span);
-        };
-
-        addSep('(');
-        for (let i = 0; i < 10; i++) {
-          if (i === 3) addSep(')');
-          if (i === 6) addSep('-');
-          const card = document.createElement('div');
-          card.className = 'flip-card empty';
-          card.textContent = '_';
-          this.flipRow.appendChild(card);
-          this.cardEls.push(card);
-        }
-      }
-
       buildDialSVG() {
         const SVG_NS = 'http://www.w3.org/2000/svg';
-        this.stationaryGroup.innerHTML = '';
+        this.numbersGroup.innerHTML = '';
         this.maskHolesGroup.innerHTML = '';
         this.holeRimsGroup.innerHTML = '';
 
-        this.DIGITS_CONFIG.forEach((cfg) => {
-          const rad = (cfg.angle * Math.PI) / 180;
-          const cx = 160 + this.HOLE_RADIUS * Math.cos(rad);
-          const cy = 160 + this.HOLE_RADIUS * Math.sin(rad);
+        this.DIGITS.forEach((cfg) => {
+          const rad = (cfg.svgAngle * Math.PI) / 180;
+          const cx = 130 + this.HOLE_RADIUS * Math.cos(rad);
+          const cy = 130 + this.HOLE_RADIUS * Math.sin(rad);
 
-          // 1. Stationary Number & Letters printed on the white dial plate underneath
           const numText = document.createElementNS(SVG_NS, 'text');
           numText.setAttribute('x', cx.toFixed(1));
-          numText.setAttribute('y', (cy + 5).toFixed(1));
+          numText.setAttribute('y', (cy + 4).toFixed(1));
           numText.setAttribute('text-anchor', 'middle');
-          numText.setAttribute('fill', 'var(--dial-ink)');
-          numText.setAttribute('font-size', '18');
-          numText.setAttribute('font-weight', '900');
+          numText.setAttribute('fill', '#0f172a');
+          numText.setAttribute('font-size', '14');
+          numText.setAttribute('font-weight', '700');
           numText.textContent = String(cfg.digit);
-          this.stationaryGroup.appendChild(numText);
+          this.numbersGroup.appendChild(numText);
 
           if (cfg.letters) {
-            const subText = document.createElementNS(SVG_NS, 'text');
-            subText.setAttribute('x', cx.toFixed(1));
-            subText.setAttribute('y', (cy + 14.5).toFixed(1));
-            subText.setAttribute('text-anchor', 'middle');
-            subText.setAttribute('fill', '#78716c');
-            subText.setAttribute('font-size', '6.5');
-            subText.setAttribute('font-weight', '800');
-            subText.textContent = cfg.letters;
-            this.stationaryGroup.appendChild(subText);
+            const sub = document.createElementNS(SVG_NS, 'text');
+            sub.setAttribute('x', cx.toFixed(1));
+            sub.setAttribute('y', (cy + 11.5).toFixed(1));
+            sub.setAttribute('text-anchor', 'middle');
+            sub.setAttribute('fill', '#64748b');
+            sub.setAttribute('font-size', '5.5');
+            sub.setAttribute('font-weight', '700');
+            sub.textContent = cfg.letters;
+            this.numbersGroup.appendChild(sub);
           }
 
-          // 2. Cutout circle in the finger-wheel SVG mask
-          const maskHole = document.createElementNS(SVG_NS, 'circle');
-          maskHole.setAttribute('cx', cx.toFixed(1));
-          maskHole.setAttribute('cy', cy.toFixed(1));
-          maskHole.setAttribute('r', String(this.HOLE_SIZE));
-          maskHole.setAttribute('fill', 'black');
-          this.maskHolesGroup.appendChild(maskHole);
+          const maskCircle = document.createElementNS(SVG_NS, 'circle');
+          maskCircle.setAttribute('cx', cx.toFixed(1));
+          maskCircle.setAttribute('cy', cy.toFixed(1));
+          maskCircle.setAttribute('r', String(this.HOLE_SIZE));
+          maskCircle.setAttribute('fill', 'black');
+          this.maskHolesGroup.appendChild(maskCircle);
 
-          // 3. Metallic rim + interactive hit target on the rotating wheel
           const rim = document.createElementNS(SVG_NS, 'circle');
           rim.setAttribute('cx', cx.toFixed(1));
           rim.setAttribute('cy', cy.toFixed(1));
           rim.setAttribute('r', String(this.HOLE_SIZE));
-          rim.setAttribute('fill', 'rgba(255,255,255,0.03)');
-          rim.setAttribute('stroke', 'rgba(255,255,255,0.45)');
-          rim.setAttribute('stroke-width', '2');
+          rim.setAttribute('fill', 'rgba(255,255,255,0.01)');
+          rim.setAttribute('stroke', '#94a3b8');
+          rim.setAttribute('stroke-width', '1.4');
           rim.style.cursor = 'grab';
-          rim.dataset.digit = String(cfg.digit);
 
           rim.addEventListener('pointerdown', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            this.startDragDigit(cfg, e);
+            this.startDrag(cfg, e);
           });
 
           this.holeRimsGroup.appendChild(rim);
@@ -1443,41 +1538,26 @@
         window.addEventListener('pointerup', endDrag);
         window.addEventListener('pointercancel', endDrag);
 
-        this.btnUndo.addEventListener('click', () => this.undoDigit());
-        this.btnHangUp.addEventListener('click', () => this.hangUp());
-        this.btnBannerHangup.addEventListener('click', () => this.hangUp());
-        this.btnCall.addEventListener('click', () => this.placeCall());
+        this.btnUndo.addEventListener('click', () => {
+          this.audio.playClick(420, 0.025, 0.07);
+          this.undoDigit();
+        });
 
-        // Keyboard shortcuts: 0-9 to dial, Backspace to undo, Enter to call, Escape to hang up
+        this.btnClear.addEventListener('click', () => {
+          this.audio.playClick(340, 0.035, 0.07);
+          this.reset();
+        });
+
         window.addEventListener('keydown', (e) => {
           if (e.ctrlKey || e.metaKey || e.altKey) return;
-
           if (/^[0-9]$/.test(e.key)) {
             e.preventDefault();
-            window.lastActiveWidget = 'phone';
-            this.triggerQuickDial(parseInt(e.key, 10));
-          } else if (e.key === 'Backspace' || e.key === 'Delete') {
-            e.preventDefault();
-            if (window.lastActiveWidget === 'name' && window.nameArcadePicker && window.nameArcadePicker.letters.length > 0) {
-              window.nameArcadePicker.deleteLastLetter();
-            } else if (this.dialedDigits.length > 0) {
-              this.undoDigit();
-            } else if (window.nameArcadePicker && window.nameArcadePicker.letters.length > 0) {
-              window.nameArcadePicker.deleteLastLetter();
-            }
-          } else if (e.key === 'Enter') {
-            if (this.dialedDigits.length === 10 && this.mode === 'IDLE') {
-              e.preventDefault();
-              this.placeCall();
-            }
-          } else if (e.key === 'Escape') {
-            e.preventDefault();
-            this.hangUp();
+            this.quickDial(parseInt(e.key, 10));
           }
         });
       }
 
-      getPointerAngleDeg(e) {
+      getPointerAngle(e) {
         const rect = this.svg.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
@@ -1485,467 +1565,376 @@
         return (deg + 360) % 360;
       }
 
-      startDragDigit(cfg, e) {
+      startDrag(cfg, e) {
         this.audio.ensureContext();
         if (this.mode !== 'IDLE') return;
-        if (this.dialedDigits.length >= this.MAX_DIGITS) {
-          this.setStatus('All 10 digits dialed — Press Place Call or Hang Up', 'emerald');
+        if (this.digits.length >= this.MAX_DIGITS) {
+          this.hintTextEl.textContent = '10 digits complete';
           return;
         }
 
-        window.lastActiveWidget = 'phone';
         this.mode = 'DRAGGING';
-        this.activeConfig = cfg;
-        this.dragStartPointerAngle = this.getPointerAngleDeg(e);
+        this.activeCfg = cfg;
+        this.dragStartAngle = this.getPointerAngle(e);
         this.dragStartTime = performance.now();
-        this.maxDragAngleReached = 0;
+        this.maxDragAngle = 0;
         this.lastRatchetStep = 0;
-        this.hitStopClinked = false;
-        this.setStatus(`Winding digit ${cfg.digit} to the finger stop...`, 'amber');
+        this.hintTextEl.textContent = `Winding ${cfg.digit}...`;
       }
 
       onDragMove(e) {
-        if (!this.activeConfig) return;
-        const curAngle = this.getPointerAngleDeg(e);
-        let delta = (curAngle - this.dragStartPointerAngle + 360) % 360;
-        if (delta > 300) delta = 0; // Prevent counter-clockwise wrap
+        if (!this.activeCfg) return;
+        const cur = this.getPointerAngle(e);
+        let delta = (cur - this.dragStartAngle + 360) % 360;
+        if (delta > 315) delta = 0;
 
-        const clamped = Math.min(this.activeConfig.maxSweep, Math.max(0, delta));
+        const clamped = Math.min(this.activeCfg.maxSweep, Math.max(0, delta));
         this.currentRotation = clamped;
-        this.maxDragAngleReached = Math.max(this.maxDragAngleReached, clamped);
-        this.applyWheelRotation(clamped);
+        this.maxDragAngle = Math.max(this.maxDragAngle, clamped);
+        this.wheelGroup.style.transform = `rotate(${clamped.toFixed(2)}deg)`;
 
-        const ratchetStep = Math.floor(clamped / 16);
-        if (ratchetStep > this.lastRatchetStep) {
-          this.lastRatchetStep = ratchetStep;
-          this.audio.playRatchetClick();
-        }
-
-        if (clamped >= this.activeConfig.maxSweep - 3 && !this.hitStopClinked) {
-          this.hitStopClinked = true;
-          this.audio.playFingerStopClink();
-          this.setStatus(`Release to dial ${this.activeConfig.digit} (${this.activeConfig.pulses} pulses)`, 'emerald');
+        const step = Math.floor(clamped / 16);
+        if (step > this.lastRatchetStep) {
+          this.lastRatchetStep = step;
+          this.audio.playRatchetTick();
         }
       }
 
       finishDrag() {
-        const cfg = this.activeConfig;
+        const cfg = this.activeCfg;
         if (!cfg) {
           this.mode = 'IDLE';
           return;
         }
 
         const elapsed = performance.now() - this.dragStartTime;
-        // Quick tap on a hole triggers an authentic full auto-wind + return
-        if (this.maxDragAngleReached < 14 && elapsed < 320) {
+        if (this.maxDragAngle < 14 && elapsed < 300) {
           this.mode = 'IDLE';
-          this.triggerQuickDial(cfg.digit);
+          this.quickDial(cfg.digit);
           return;
         }
 
-        // Did the user pull far enough (at least 75% of the way to the stop)?
-        const accepted = this.currentRotation >= cfg.maxSweep * 0.75;
-        this.startSpringReturn(cfg, this.currentRotation, accepted);
+        const accepted = this.currentRotation >= cfg.maxSweep * 0.72;
+        this.springReturn(cfg, this.currentRotation, accepted);
       }
 
-      triggerQuickDial(digit) {
+      quickDial(digit) {
         this.audio.ensureContext();
-        if (this.mode !== 'IDLE') return;
-        if (this.dialedDigits.length >= this.MAX_DIGITS) {
-          this.setStatus('10-digit number complete — Press Place Call', 'emerald');
-          return;
-        }
-
-        const cfg = this.DIGITS_CONFIG.find((c) => c.digit === digit);
+        if (this.mode !== 'IDLE' || this.digits.length >= this.MAX_DIGITS) return;
+        const cfg = this.DIGITS.find((d) => d.digit === digit);
         if (!cfg) return;
 
-        window.lastActiveWidget = 'phone';
         this.mode = 'AUTO_WIND';
-        this.activeConfig = cfg;
-        this.setStatus(`Dialing ${cfg.digit}...`, 'amber');
+        this.activeCfg = cfg;
+        this.hintTextEl.textContent = `Dialing ${cfg.digit}...`;
 
-        const startRot = 0;
-        const targetRot = cfg.maxSweep;
-        const windDuration = 160 + cfg.pulses * 26;
-        const startTime = performance.now();
+        const target = cfg.maxSweep;
+        const duration = 150 + cfg.pulses * 24;
+        const start = performance.now();
         let lastStep = 0;
 
-        const windStep = (now) => {
+        const wind = (now) => {
           if (this.mode !== 'AUTO_WIND') return;
-          const t = Math.min(1, (now - startTime) / windDuration);
+          const t = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - t, 2);
-          const rot = startRot + (targetRot - startRot) * eased;
+          const rot = target * eased;
           this.currentRotation = rot;
-          this.applyWheelRotation(rot);
+          this.wheelGroup.style.transform = `rotate(${rot.toFixed(2)}deg)`;
 
           const step = Math.floor(rot / 18);
           if (step > lastStep) {
             lastStep = step;
-            this.audio.playRatchetClick();
+            this.audio.playRatchetTick();
           }
 
           if (t < 1) {
-            requestAnimationFrame(windStep);
+            requestAnimationFrame(wind);
           } else {
-            this.audio.playFingerStopClink();
-            setTimeout(() => {
-              if (this.mode === 'AUTO_WIND') {
-                this.startSpringReturn(cfg, targetRot, true);
-              }
-            }, 65);
+            this.springReturn(cfg, target, true);
           }
         };
-        requestAnimationFrame(windStep);
+        requestAnimationFrame(wind);
       }
 
-      startSpringReturn(cfg, fromAngle, accepted) {
+      springReturn(cfg, fromAngle, accepted) {
         this.mode = 'RETURNING';
         const pulses = cfg.pulses;
-        const returnDuration = Math.max(180, pulses * 88);
-        const startTime = performance.now();
-        let emittedPulses = 0;
+        const duration = Math.max(170, pulses * 78);
+        const start = performance.now();
+        let emitted = 0;
 
-        const returnStep = (now) => {
+        const ret = (now) => {
           if (this.mode !== 'RETURNING') return;
-          const t = Math.min(1, (now - startTime) / returnDuration);
+          const t = Math.min(1, (now - start) / duration);
           const rot = fromAngle * (1 - t);
           this.currentRotation = rot;
-          this.applyWheelRotation(rot);
+          this.wheelGroup.style.transform = `rotate(${rot.toFixed(2)}deg)`;
 
           if (accepted) {
-            const expectedPulses = Math.floor(t * pulses);
-            while (emittedPulses < expectedPulses) {
-              emittedPulses++;
+            const expected = Math.floor(t * pulses);
+            while (emitted < expected) {
+              emitted++;
               this.audio.playPulseTick();
             }
           }
 
           if (t < 1) {
-            requestAnimationFrame(returnStep);
+            requestAnimationFrame(ret);
           } else {
             this.currentRotation = 0;
-            this.applyWheelRotation(0);
-            this.activeConfig = null;
+            this.wheelGroup.style.transform = 'rotate(0deg)';
+            this.activeCfg = null;
             this.mode = 'IDLE';
 
-            if (accepted && this.dialedDigits.length < this.MAX_DIGITS) {
-              this.dialedDigits.push(cfg.digit);
+            if (accepted && this.digits.length < this.MAX_DIGITS) {
+              this.digits.push(cfg.digit);
+              this.clearError();
               this.updateUI();
-              if (this.dialedDigits.length === this.MAX_DIGITS) {
-                this.setStatus('10 digits ready! Press Place Call to ring.', 'emerald');
-              } else {
-                this.setStatus(`Recorded ${cfg.digit} (${pulses} pulse${pulses > 1 ? 's' : ''})`, 'amber');
-              }
             } else {
-              this.setStatus('Pull all the way to the chrome stop to register a digit', 'amber');
+              this.hintTextEl.textContent = 'Pull to finger stop';
             }
           }
         };
-        requestAnimationFrame(returnStep);
-      }
-
-      applyWheelRotation(deg) {
-        this.fingerWheelGroup.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+        requestAnimationFrame(ret);
       }
 
       undoDigit() {
-        if (this.dialedDigits.length === 0 || this.mode !== 'IDLE') return;
-        this.audio.playButtonPress();
-        this.dialedDigits.pop();
+        if (this.digits.length === 0 || this.mode !== 'IDLE') return;
+        this.digits.pop();
         this.updateUI();
-        this.setStatus('Last digit removed', 'amber');
       }
 
-      hangUp() {
-        this.audio.stopRingtone();
-        this.audio.playClunk();
-        this.dialedDigits = [];
+      reset() {
+        this.digits = [];
         this.currentRotation = 0;
-        this.applyWheelRotation(0);
-        this.activeConfig = null;
+        this.wheelGroup.style.transform = 'rotate(0deg)';
+        this.activeCfg = null;
         this.mode = 'IDLE';
-
-        this.plungerLeft.classList.remove('lifted');
-        this.plungerRight.classList.remove('lifted');
-        this.phoneBody.classList.remove('ringing-active');
-        this.activeCallBanner.classList.add('hidden');
-
+        this.clearError();
         this.updateUI();
-        this.setStatus('Receiver on hook — Line cleared', 'amber');
       }
 
-      placeCall() {
-        if (this.dialedDigits.length !== 10 || this.mode !== 'IDLE') return;
-        this.audio.playButtonPress();
-        this.mode = 'CALLING';
-
-        this.plungerLeft.classList.add('lifted');
-        this.plungerRight.classList.add('lifted');
-        this.phoneBody.classList.add('ringing-active');
-        this.audio.startRingtone();
-
-        const formatted = this.getFormattedNumber();
-        this.callBannerNumber.textContent = formatted;
-        if (window.orbitalDatePicker) {
-          this.callBannerDate.textContent = window.orbitalDatePicker.getFullFormattedDate();
-        }
-        this.activeCallBanner.classList.remove('hidden');
-
-        this.updateUI();
-        this.setStatus(`Calling ${formatted}...`, 'emerald');
+      getFormattedNumber() {
+        const slot = (i) => (i < this.digits.length ? String(this.digits[i]) : '_');
+        return `( ${slot(0)} ${slot(1)} ${slot(2)} ) ${slot(3)} ${slot(4)} ${slot(5)} - ${slot(6)} ${slot(7)} ${slot(8)} ${slot(9)}`;
       }
 
-      getFormattedNumber(includePlaceholders = false) {
-        const d = this.dialedDigits;
-        if (!includePlaceholders && d.length < 10) return '';
-        const slot = (i) => (i < d.length ? String(d[i]) : '_');
-        return `(${slot(0)}${slot(1)}${slot(2)}) ${slot(3)}${slot(4)}${slot(5)}-${slot(6)}${slot(7)}${slot(8)}${slot(9)}`;
+      getCleanNumber() {
+        const d = this.digits;
+        if (d.length < 10) return this.getFormattedNumber();
+        return `(${d[0]}${d[1]}${d[2]}) ${d[3]}${d[4]}${d[5]}-${d[6]}${d[7]}${d[8]}${d[9]}`;
+      }
+
+      setError(msg) {
+        this.errorEl.textContent = msg || '';
+      }
+
+      clearError() {
+        this.errorEl.textContent = '';
       }
 
       updateUI() {
-        const len = this.dialedDigits.length;
-        this.cardEls.forEach((el, idx) => {
-          el.classList.remove('empty', 'active-next');
-          if (idx < len) {
-            el.textContent = String(this.dialedDigits[idx]);
-          } else {
-            el.classList.add('empty');
-            el.textContent = '_';
-            if (idx === len && this.mode === 'IDLE') {
-              el.classList.add('active-next');
-            }
-          }
-        });
+        const count = this.digits.length;
+        this.displayTextEl.textContent = this.getFormattedNumber();
+        this.counterEl.textContent = `${count} / ${this.MAX_DIGITS} digits`;
+        this.hintTextEl.textContent = count === 10 ? 'Complete' : 'Drag to stop or tap';
 
-        this.digitCounter.textContent = `${len} / 10 digits`;
-        this.btnUndo.disabled = len === 0 || this.mode !== 'IDLE';
-        this.btnCall.disabled = len !== 10 || this.mode !== 'IDLE';
-        this.btnCall.classList.toggle('ready-glow', len === 10 && this.mode === 'IDLE');
-
-        this.onStateChange();
-      }
-
-      setStatus(msg, tone = 'amber') {
-        this.statusText.textContent = msg;
-        this.statusDot.style.background = tone === 'emerald' ? '#34d399' : '#fbbf24';
+        this.btnUndo.disabled = count === 0 || this.mode !== 'IDLE';
+        this.btnClear.disabled = count === 0 || this.mode !== 'IDLE';
+        this.onChange();
       }
     }
 
     /**
      * ==========================================================================
-     * 3. MODULE 2: 360-DEGREE EARTH-AROUND-SUN ORBITAL DATE PICKER
+     * 4. FIELD 3: DATE OF BIRTH (360-DEGREE EARTH-AROUND-SUN ORBITAL PICKER)
+     * Defaults to June 15, 1998 (1998-06-15).
      * ==========================================================================
      */
-    class OrbitalDatePicker {
-      constructor(sharedAudio, onDateChange) {
-        this.audio = sharedAudio;
-        this.onDateChange = onDateChange || (() => {});
+    class OrbitalDobPicker {
+      constructor(audio, onChange) {
+        this.audio = audio;
+        this.onChange = onChange || (() => {});
 
-        const now = new Date();
-        this.year = now.getFullYear();
+        this.svg = document.getElementById('orbital-svg');
+        this.ticksGroup = document.getElementById('orbital-ticks-group');
+        this.monthsGroup = document.getElementById('orbital-months-group');
+        this.arcEl = document.getElementById('orbital-arc');
+        this.sightlineEl = document.getElementById('orbital-sightline');
+        this.yearTextEl = document.getElementById('orbital-year-text');
 
-        // Compute initial angle [0, 360) from today's Day of Year
-        const startOfYear = new Date(this.year, 0, 1);
-        const doy = Math.floor((now - startOfYear) / 86400000);
-        const totalDays = this.daysInYear(this.year);
-        this.angleDeg = (doy / totalDays) * 360;
+        this.earthGroup = document.getElementById('earth-drag-group');
+        this.earthHit = document.getElementById('earth-hit-circle');
+        this.earthSphere = document.getElementById('earth-sphere');
+
+        this.formattedTextEl = document.getElementById('dob-formatted-text');
+        this.isoTextEl = document.getElementById('dob-iso-text');
+        this.angleMetaEl = document.getElementById('dob-angle-meta');
+        this.errorEl = document.getElementById('err-dob');
 
         this.isDragging = false;
-        this.lastTickInt = Math.floor(this.angleDeg);
-
-        // DOM Elements
-        this.svg = document.getElementById('orbital-svg');
-        this.ticksGroup = document.getElementById('orrery-ticks-group');
-        this.monthsGroup = document.getElementById('orrery-months-group');
-        this.progressArc = document.getElementById('orbit-progress-arc');
-        this.sightline = document.getElementById('orbit-sightline');
-        this.sunYearLabel = document.getElementById('sun-year-label');
-
-        this.earthGroup = document.getElementById('earth-handle-group');
-        this.earthHitZone = document.getElementById('earth-hit-zone');
-        this.earthBody = document.getElementById('earth-body');
-        this.earthLand = document.getElementById('earth-land');
-        this.moonBody = document.getElementById('moon-body');
-
-        this.fullDateEl = document.getElementById('orbit-full-date');
-        this.isoDateEl = document.getElementById('orbit-iso-date');
-        this.angleReadoutEl = document.getElementById('orbit-angle-readout');
-        this.doyReadoutEl = document.getElementById('orbit-doy-readout');
-        this.seasonReadoutEl = document.getElementById('orbit-season-readout');
-
-        this.buildOrreryDial();
+        this.buildDial();
+        this.setDefaultDate();
         this.bindEvents();
-        this.renderOrbit();
+        this.render();
       }
 
       daysInYear(yr) {
         return (yr % 4 === 0 && yr % 100 !== 0) || yr % 400 === 0 ? 366 : 365;
       }
 
-      buildOrreryDial() {
+      setDefaultDate() {
+        // Default: June 15, 1998
+        this.year = 1998;
+        const start = new Date(1998, 0, 1);
+        const target = new Date(1998, 5, 15);
+        const dayIndex = Math.round((target - start) / 86400000); // 165
+        this.angleDeg = ((dayIndex + 0.5) / this.daysInYear(this.year)) * 360;
+        this.lastTickInt = Math.floor(this.angleDeg);
+      }
+
+      buildDial() {
         const SVG_NS = 'http://www.w3.org/2000/svg';
         this.ticksGroup.innerHTML = '';
         this.monthsGroup.innerHTML = '';
 
-        // 360 degree tick marks (0 deg = Top / 12 o'clock = Jan 1)
         for (let deg = 0; deg < 360; deg++) {
           const isMajor = deg % 30 === 0;
           const isMed = deg % 5 === 0;
           const rad = ((deg - 90) * Math.PI) / 180;
-          const rOuter = 132;
-          const rInner = isMajor ? 120 : isMed ? 125 : 128.5;
+          const rOuter = 114;
+          const rInner = isMajor ? 104 : isMed ? 108 : 111;
 
           const line = document.createElementNS(SVG_NS, 'line');
-          line.setAttribute('x1', (160 + rInner * Math.cos(rad)).toFixed(1));
-          line.setAttribute('y1', (160 + rInner * Math.sin(rad)).toFixed(1));
-          line.setAttribute('x2', (160 + rOuter * Math.cos(rad)).toFixed(1));
-          line.setAttribute('y2', (160 + rOuter * Math.sin(rad)).toFixed(1));
-          line.setAttribute('stroke', isMajor ? '#fbbf24' : isMed ? 'rgba(226,232,240,0.45)' : 'rgba(148,163,184,0.2)');
-          line.setAttribute('stroke-width', isMajor ? '1.8' : '0.9');
+          line.setAttribute('x1', (140 + rInner * Math.cos(rad)).toFixed(1));
+          line.setAttribute('y1', (140 + rInner * Math.sin(rad)).toFixed(1));
+          line.setAttribute('x2', (140 + rOuter * Math.cos(rad)).toFixed(1));
+          line.setAttribute('y2', (140 + rOuter * Math.sin(rad)).toFixed(1));
+          line.setAttribute('stroke', isMajor ? '#64748b' : isMed ? '#94a3b8' : '#cbd5e1');
+          line.setAttribute('stroke-width', isMajor ? '1.4' : '0.8');
           this.ticksGroup.appendChild(line);
         }
 
         const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-        months.forEach((m, idx) => {
-          const deg = idx * 30 + 15;
+        months.forEach((m, i) => {
+          const deg = i * 30 + 15;
           const rad = ((deg - 90) * Math.PI) / 180;
-          const rLabel = 142;
           const txt = document.createElementNS(SVG_NS, 'text');
-          txt.setAttribute('x', (160 + rLabel * Math.cos(rad)).toFixed(1));
-          txt.setAttribute('y', (160 + rLabel * Math.sin(rad) + 3).toFixed(1));
+          txt.setAttribute('x', (140 + 123 * Math.cos(rad)).toFixed(1));
+          txt.setAttribute('y', (140 + 123 * Math.sin(rad) + 3).toFixed(1));
           txt.setAttribute('text-anchor', 'middle');
-          txt.setAttribute('fill', '#cbd5e1');
-          txt.setAttribute('font-size', '8.5');
-          txt.setAttribute('font-weight', '800');
+          txt.setAttribute('fill', '#64748b');
+          txt.setAttribute('font-size', '8');
+          txt.setAttribute('font-weight', '700');
           txt.textContent = m;
           this.monthsGroup.appendChild(txt);
         });
       }
 
       bindEvents() {
-        const startOrbitDrag = (e) => {
+        const startDrag = (e) => {
           e.preventDefault();
           this.audio.ensureContext();
           this.isDragging = true;
           this.earthGroup.style.cursor = 'grabbing';
-          this.updateAngleFromPointer(e);
+          this.updateFromPointer(e);
         };
 
-        this.earthGroup.addEventListener('pointerdown', startOrbitDrag);
+        this.earthGroup.addEventListener('pointerdown', startDrag);
         this.svg.addEventListener('pointerdown', (e) => {
-          // Also allow clicking anywhere near the orbital ring to jump Earth there
           const rect = this.svg.getBoundingClientRect();
           const cx = rect.left + rect.width / 2;
           const cy = rect.top + rect.height / 2;
-          const dist = Math.hypot(e.clientX - cx, e.clientY - cy) * (320 / rect.width);
-          if (dist >= 55 && dist <= 145) {
-            startOrbitDrag(e);
+          const dist = Math.hypot(e.clientX - cx, e.clientY - cy) * (280 / rect.width);
+          if (dist >= 44 && dist <= 126) {
+            startDrag(e);
           }
         });
 
         window.addEventListener('pointermove', (e) => {
           if (this.isDragging) {
-            this.updateAngleFromPointer(e);
+            this.updateFromPointer(e);
           }
         });
 
-        const endOrbitDrag = () => {
+        const stopDrag = () => {
           if (this.isDragging) {
             this.isDragging = false;
             this.earthGroup.style.cursor = 'grab';
           }
         };
-        window.addEventListener('pointerup', endOrbitDrag);
-        window.addEventListener('pointercancel', endOrbitDrag);
+        window.addEventListener('pointerup', stopDrag);
+        window.addEventListener('pointercancel', stopDrag);
 
-        document.getElementById('orbit-prev-yr').addEventListener('click', () => {
-          this.audio.playButtonPress();
+        document.getElementById('btn-dob-prev-yr').addEventListener('click', () => {
+          this.audio.playClick();
           this.year -= 1;
-          this.renderOrbit();
+          this.clearError();
+          this.render();
         });
 
-        document.getElementById('orbit-next-yr').addEventListener('click', () => {
-          this.audio.playButtonPress();
+        document.getElementById('btn-dob-next-yr').addEventListener('click', () => {
+          this.audio.playClick();
           this.year += 1;
-          this.renderOrbit();
+          this.clearError();
+          this.render();
         });
 
-        document.getElementById('orbit-prev-deg').addEventListener('click', () => {
+        document.getElementById('btn-dob-prev-day').addEventListener('click', () => {
           this.audio.playGearTick();
-          this.stepAngle(-1);
+          this.stepDays(-1);
         });
 
-        document.getElementById('orbit-next-deg').addEventListener('click', () => {
+        document.getElementById('btn-dob-next-day').addEventListener('click', () => {
           this.audio.playGearTick();
-          this.stepAngle(1);
-        });
-
-        document.getElementById('orbit-today').addEventListener('click', () => {
-          this.audio.playButtonPress();
-          const now = new Date();
-          this.year = now.getFullYear();
-          const startOfYear = new Date(this.year, 0, 1);
-          const doy = Math.floor((now - startOfYear) / 86400000);
-          this.angleDeg = (doy / this.daysInYear(this.year)) * 360;
-          this.renderOrbit();
+          this.stepDays(1);
         });
       }
 
-      updateAngleFromPointer(e) {
+      updateFromPointer(e) {
         const rect = this.svg.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
-        // 0 deg at top (12 o'clock), increasing clockwise
-        const rawDeg = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180) / Math.PI + 90;
-        const newAngle = (rawDeg + 360) % 360;
+        const raw = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180) / Math.PI + 90;
+        const nextAngle = (raw + 360) % 360;
 
-        // Detect crossing the 360 <-> 0 year boundary
-        const diff = newAngle - this.angleDeg;
+        const diff = nextAngle - this.angleDeg;
         if (diff < -180) {
           this.year += 1;
         } else if (diff > 180) {
           this.year -= 1;
         }
 
-        this.angleDeg = newAngle;
-        const tickInt = Math.floor(this.angleDeg);
-        if (tickInt !== this.lastTickInt) {
-          this.lastTickInt = tickInt;
+        this.angleDeg = nextAngle;
+        const tick = Math.floor(this.angleDeg);
+        if (tick !== this.lastTickInt) {
+          this.lastTickInt = tick;
           this.audio.playGearTick();
         }
-        this.renderOrbit();
+        this.clearError();
+        this.render();
       }
 
-      stepAngle(deltaDeg) {
-        let next = this.angleDeg + deltaDeg;
-        if (next >= 360) {
-          next -= 360;
-          this.year += 1;
-        } else if (next < 0) {
-          next += 360;
-          this.year -= 1;
-        }
-        this.angleDeg = next;
-        this.renderOrbit();
+      stepDays(deltaDays) {
+        const cur = this.getSelectedDate();
+        cur.setDate(cur.getDate() + deltaDays);
+        this.year = cur.getFullYear();
+        const start = new Date(this.year, 0, 1);
+        const dayIndex = Math.round((cur - start) / 86400000);
+        this.angleDeg = ((dayIndex + 0.5) / this.daysInYear(this.year)) * 360;
+        this.clearError();
+        this.render();
       }
 
       getSelectedDate() {
-        const totalDays = this.daysInYear(this.year);
-        const dayIndex = Math.min(totalDays - 1, Math.floor((this.angleDeg / 360) * totalDays));
-        return new Date(this.year, 0, 1 + dayIndex);
+        const total = this.daysInYear(this.year);
+        const idx = Math.min(total - 1, Math.floor((this.angleDeg / 360) * total));
+        return new Date(this.year, 0, 1 + idx);
       }
 
-      getDayOfYear() {
-        const d = this.getSelectedDate();
-        const start = new Date(this.year, 0, 1);
-        return Math.floor((d - start) / 86400000) + 1;
-      }
-
-      getFullFormattedDate() {
-        const d = this.getSelectedDate();
-        return d.toLocaleDateString('en-US', {
-          weekday: 'short',
-          month: 'short',
+      getFormattedDate() {
+        return this.getSelectedDate().toLocaleDateString('en-US', {
+          month: 'long',
           day: 'numeric',
           year: 'numeric'
         });
@@ -1959,821 +1948,496 @@
         return `${y}-${m}-${day}`;
       }
 
-      getSeason(dateObj) {
-        const m = dateObj.getMonth();
-        const day = dateObj.getDate();
-        if ((m === 2 && day >= 20) || m === 3 || m === 4 || (m === 5 && day < 21)) return 'Spring';
-        if ((m === 5 && day >= 21) || m === 6 || m === 7 || (m === 8 && day < 22)) return 'Summer';
-        if ((m === 8 && day >= 22) || m === 9 || m === 10 || (m === 11 && day < 21)) return 'Autumn';
-        return 'Winter';
+      reset() {
+        this.setDefaultDate();
+        this.clearError();
+        this.render();
       }
 
-      renderOrbit() {
-        const r = 104;
+      setError(msg) {
+        this.errorEl.textContent = msg || '';
+      }
+
+      clearError() {
+        this.errorEl.textContent = '';
+      }
+
+      render() {
+        const r = 90;
         const rad = ((this.angleDeg - 90) * Math.PI) / 180;
-        const ex = 160 + r * Math.cos(rad);
-        const ey = 160 + r * Math.sin(rad);
+        const ex = 140 + r * Math.cos(rad);
+        const ey = 140 + r * Math.sin(rad);
 
-        this.sunYearLabel.textContent = String(this.year);
-        this.sightline.setAttribute('x2', ex.toFixed(1));
-        this.sightline.setAttribute('y2', ey.toFixed(1));
+        this.yearTextEl.textContent = String(this.year);
+        this.sightlineEl.setAttribute('x2', ex.toFixed(1));
+        this.sightlineEl.setAttribute('y2', ey.toFixed(1));
 
-        // Update swept arc path from 0 deg (160, 56) to current Earth position
         if (this.angleDeg > 0.5) {
           const largeArc = this.angleDeg > 180 ? 1 : 0;
-          const dPath = `M 160 56 A ${r} ${r} 0 ${largeArc} 1 ${ex.toFixed(1)} ${ey.toFixed(1)}`;
-          this.progressArc.setAttribute('d', dPath);
+          this.arcEl.setAttribute('d', `M 140 50 A ${r} ${r} 0 ${largeArc} 1 ${ex.toFixed(1)} ${ey.toFixed(1)}`);
         } else {
-          this.progressArc.setAttribute('d', '');
+          this.arcEl.setAttribute('d', '');
         }
 
-        // Move Earth & Moon
-        this.earthHitZone.setAttribute('cx', ex.toFixed(1));
-        this.earthHitZone.setAttribute('cy', ey.toFixed(1));
-        this.earthBody.setAttribute('cx', ex.toFixed(1));
-        this.earthBody.setAttribute('cy', ey.toFixed(1));
-        this.earthLand.setAttribute(
-          'd',
-          `M ${(ex - 5).toFixed(1)} ${(ey - 5).toFixed(1)} Q ${ex.toFixed(1)} ${(ey - 7).toFixed(1)} ${(ex + 4).toFixed(1)} ${(ey - 2).toFixed(1)} Q ${(ex + 1).toFixed(1)} ${(ey + 4).toFixed(1)} ${(ex - 4).toFixed(1)} ${(ey + 2).toFixed(1)} Z`
-        );
+        this.earthHit.setAttribute('cx', ex.toFixed(1));
+        this.earthHit.setAttribute('cy', ey.toFixed(1));
+        this.earthSphere.setAttribute('cx', ex.toFixed(1));
+        this.earthSphere.setAttribute('cy', ey.toFixed(1));
 
-        const moonRad = rad * 12;
-        const mx = ex + 20 * Math.cos(moonRad);
-        const my = ey + 20 * Math.sin(moonRad);
-        this.moonBody.setAttribute('cx', mx.toFixed(1));
-        this.moonBody.setAttribute('cy', my.toFixed(1));
-
-        // Update text readouts
-        const dateObj = this.getSelectedDate();
-        this.fullDateEl.textContent = this.getFullFormattedDate();
-        this.isoDateEl.textContent = this.getISODate();
-        this.angleReadoutEl.textContent = `${this.angleDeg.toFixed(1)}° / 360°`;
-        this.doyReadoutEl.textContent = `Day ${this.getDayOfYear()} / ${this.daysInYear(this.year)}`;
-        this.seasonReadoutEl.textContent = this.getSeason(dateObj);
-
-        const callDateEl = document.getElementById('call-banner-date');
-        if (callDateEl) {
-          callDateEl.textContent = this.getFullFormattedDate();
-        }
-
-        this.onDateChange();
+        this.formattedTextEl.textContent = this.getFormattedDate();
+        this.isoTextEl.textContent = this.getISODate();
+        this.angleMetaEl.textContent = `${this.angleDeg.toFixed(1)}° / 360°`;
+        this.onChange();
       }
     }
 
     /**
      * ==========================================================================
-     * 4. MODULE 3: SKATEBOARD NAME ENTRY BOX (BRICKLESS MULTI-LETTER SPAWNING)
-     * Spawns multiple random letters simultaneously across horizontal lanes from
-     * the top of the arena when Start is pressed—with ZERO bricks or balls.
+     * 5. FIELD 4: PREFERRED QUANTITY (ACCELERATOR & BRAKE SPEEDOMETER SYSTEM)
+     * - Holding Accelerator (pointer or W key): increases ~28 units/sec up to 100
+     * - Holding Brake (pointer or S key): rapidly decreases ~54 units/sec down to 0
+     * - Neither pressed (when unlocked): natural coasting drag ~7 units/sec down to 0
+     * - Done button: locks in current integer quantity and freezes coasting decay
      * ==========================================================================
      */
-    class SkateboardNamePicker {
-      constructor(sharedAudio, onNameChange) {
-        this.audio = sharedAudio;
-        this.onNameChange = onNameChange || (() => {});
+    class SpeedometerQuantityPicker {
+      constructor(audio, onChange) {
+        this.audio = audio;
+        this.onChange = onChange || (() => {});
 
-        this.MAX_CHARS = 16;
-        this.letters = [];
-        this.caughtCount = 0;
+        this.MIN_QTY = 0;
+        this.MAX_QTY = 100;
+        this.rawQuantity = 0; // Continuous float 0..100 for smooth 60fps needle
+        this.isLocked = false;
+        this.lockedQuantity = 0;
 
-        // Arcade run state: 'IDLE' | 'RUNNING' | 'PAUSED'
-        this.state = 'IDLE';
+        this.accelHeld = false;
+        this.brakeHeld = false;
+        this.lastTickStep = 0;
+        this.lastTime = performance.now();
 
-        // DOM Elements
-        this.canvas = document.getElementById('arcade-canvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.tilesRow = document.getElementById('name-tiles-row');
-        this.charCounterEl = document.getElementById('name-char-counter');
-        this.statusDotEl = document.getElementById('arcade-status-dot');
-        this.statusTextEl = document.getElementById('arcade-status-text');
-        this.caughtBadgeEl = document.getElementById('arcade-caught-badge');
+        // DOM references
+        this.statusPill = document.getElementById('qty-status-pill');
+        this.readoutBox = document.getElementById('qty-readout-box');
+        this.readoutText = document.getElementById('qty-readout-text');
+        this.readoutHint = document.getElementById('qty-readout-hint');
+        this.errorEl = document.getElementById('err-qty');
 
-        this.btnStart = document.getElementById('btn-arcade-start');
-        this.startLabel = document.getElementById('arcade-start-label');
-        this.btnDelete = document.getElementById('btn-name-delete');
-        this.btnClear = document.getElementById('btn-name-clear');
-        this.btnLeft = document.getElementById('btn-skate-left');
-        this.btnRight = document.getElementById('btn-skate-right');
+        this.ticksGroup = document.getElementById('speedo-ticks-group');
+        this.labelsGroup = document.getElementById('speedo-labels-group');
+        this.progressArc = document.getElementById('speedo-progress-arc');
+        this.digitalValEl = document.getElementById('speedo-digital-val');
+        this.needleGroup = document.getElementById('speedo-needle-group');
 
-        // Skateboard physics state
-        this.board = {
-          x: 180,
-          width: 82,
-          vx: 0,
-          wheelSpin: 0
-        };
+        this.btnBrake = document.getElementById('btn-pedal-brake');
+        this.btnAccel = document.getElementById('btn-pedal-accel');
+        this.btnDone = document.getElementById('btn-qty-done');
+        this.btnReset = document.getElementById('btn-qty-reset');
+        this.resetLabel = document.getElementById('qty-reset-label');
 
-        // Controls state
-        this.keys = { left: false, right: false };
-        this.pointerTargetX = null;
-
-        // Simultaneous Falling Letter Waves, Sparkles & Floating Popups (No Bricks!)
-        this.fallingLetters = [];
-        this.particles = [];
-        this.popups = [];
-        this.waveTimer = 0;
-        this.waveCount = 0;
-        this.lastFrameTime = performance.now();
-
-        this.TILE_PALETTE = [
-          { fill: '#ef4444', light: '#fca5a5' }, // Ruby Red
-          { fill: '#f59e0b', light: '#fde68a' }, // Amber Gold
-          { fill: '#10b981', light: '#6ee7b7' }, // Emerald
-          { fill: '#38bdf8', light: '#bae6fd' }, // Sky Cyan
-          { fill: '#a855f7', light: '#e9d5ff' }  // Violet
-        ];
-
-        this.buildNameSlots();
-        this.resizeCanvas();
+        this.buildGaugeScale();
         this.bindEvents();
-        this.updateUI();
-        this.startLoop();
+        this.renderGauge();
+        this.startPhysicsLoop();
       }
 
-      buildNameSlots() {
-        this.tilesRow.innerHTML = '';
-        this.tileEls = [];
-        for (let i = 0; i < this.MAX_CHARS; i++) {
-          const tile = document.createElement('div');
-          tile.className = 'name-tile empty-tile';
-          tile.textContent = i === 0 ? '▏' : '·';
-          this.tilesRow.appendChild(tile);
-          this.tileEls.push(tile);
+      buildGaugeScale() {
+        const SVG_NS = 'http://www.w3.org/2000/svg';
+        this.ticksGroup.innerHTML = '';
+        this.labelsGroup.innerHTML = '';
+
+        const cx = 140;
+        const cy = 136;
+
+        // Scale 0 to 100 across 180 degrees (-90 deg left to +90 deg right)
+        for (let val = 0; val <= 100; val += 5) {
+          const isMajor = val % 10 === 0;
+          const needleDeg = -90 + (val / 100) * 180;
+          const rad = ((needleDeg - 90) * Math.PI) / 180;
+
+          const rOuter = 96;
+          const rInner = isMajor ? 85 : 90;
+
+          const tick = document.createElementNS(SVG_NS, 'line');
+          tick.setAttribute('x1', (cx + rInner * Math.cos(rad)).toFixed(1));
+          tick.setAttribute('y1', (cy + rInner * Math.sin(rad)).toFixed(1));
+          tick.setAttribute('x2', (cx + rOuter * Math.cos(rad)).toFixed(1));
+          tick.setAttribute('y2', (cy + rOuter * Math.sin(rad)).toFixed(1));
+          tick.setAttribute('stroke', isMajor ? '#475569' : '#94a3b8');
+          tick.setAttribute('stroke-width', isMajor ? '1.6' : '1');
+          this.ticksGroup.appendChild(tick);
+
+          if (isMajor) {
+            const rLabel = 72;
+            const lbl = document.createElementNS(SVG_NS, 'text');
+            lbl.setAttribute('x', (cx + rLabel * Math.cos(rad)).toFixed(1));
+            lbl.setAttribute('y', (cy + rLabel * Math.sin(rad) + 3).toFixed(1));
+            lbl.setAttribute('text-anchor', 'middle');
+            lbl.setAttribute('fill', '#64748b');
+            lbl.setAttribute('font-size', '8.5');
+            lbl.setAttribute('font-weight', '700');
+            lbl.textContent = String(val);
+            this.labelsGroup.appendChild(lbl);
+          }
         }
       }
 
-      resizeCanvas() {
-        const rect = this.canvas.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const w = Math.max(260, Math.round(rect.width || 360));
-        const h = 245;
-        this.canvas.width = w * dpr;
-        this.canvas.height = h * dpr;
-        this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        this.logicalW = w;
-        this.logicalH = h;
-        this.board.x = Math.max(this.board.width / 2 + 8, Math.min(w - this.board.width / 2 - 8, this.board.x));
-      }
-
       bindEvents() {
-        // Start / Pause / Resume Button
-        this.btnStart.addEventListener('click', () => {
-          this.audio.ensureContext();
-          this.audio.playButtonPress();
-          window.lastActiveWidget = 'name';
+        const bindPedal = (btn, propName) => {
+          const press = (e) => {
+            e.preventDefault();
+            this.audio.ensureContext();
+            if (this.isLocked) return;
+            this[propName] = true;
+            this.clearError();
+            this.updatePedalClasses();
+          };
+          const release = () => {
+            this[propName] = false;
+            this.updatePedalClasses();
+          };
 
-          if (this.state === 'RUNNING') {
-            this.state = 'PAUSED';
-          } else {
-            if (this.letters.length >= this.MAX_CHARS) {
-              this.setArcadeStatus('Name box full (16 chars) — Delete or Clear to add more', 'amber');
-              return;
-            }
-            this.state = 'RUNNING';
-            this.waveTimer = 0;
-            // Immediately spawn a multi-letter wave as soon as Start is pressed
-            if (this.fallingLetters.length < 3) {
-              this.spawnLetterWave(4);
-            }
-          }
-          this.updateUI();
-        });
+          btn.addEventListener('pointerdown', press);
+          btn.addEventListener('pointerup', release);
+          btn.addEventListener('pointerleave', release);
+          btn.addEventListener('pointercancel', release);
+        };
 
-        this.btnDelete.addEventListener('click', () => {
-          window.lastActiveWidget = 'name';
-          this.deleteLastLetter();
-        });
+        bindPedal(this.btnAccel, 'accelHeld');
+        bindPedal(this.btnBrake, 'brakeHeld');
 
-        this.btnClear.addEventListener('click', () => {
-          window.lastActiveWidget = 'name';
-          this.clearName();
-        });
-
-        // Keyboard Arrow Left / Right (plus A / D) Steering
+        // Keyboard W (Accelerate) and S (Brake) hold support
         window.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-            if (this.state === 'RUNNING') {
-              e.preventDefault();
+          if (e.ctrlKey || e.metaKey || e.altKey || this.isLocked) return;
+          if (e.key === 'w' || e.key === 'W') {
+            this.audio.ensureContext();
+            if (!this.accelHeld) {
+              this.accelHeld = true;
+              this.clearError();
+              this.updatePedalClasses();
             }
-            window.lastActiveWidget = 'name';
-            if (e.key === 'ArrowLeft') this.keys.left = true;
-            if (e.key === 'ArrowRight') this.keys.right = true;
-          } else if ((e.key === 'a' || e.key === 'A') && this.state === 'RUNNING') {
-            window.lastActiveWidget = 'name';
-            this.keys.left = true;
-          } else if ((e.key === 'd' || e.key === 'D') && this.state === 'RUNNING') {
-            window.lastActiveWidget = 'name';
-            this.keys.right = true;
+          } else if (e.key === 's' || e.key === 'S') {
+            this.audio.ensureContext();
+            if (!this.brakeHeld) {
+              this.brakeHeld = true;
+              this.clearError();
+              this.updatePedalClasses();
+            }
           }
         });
 
         window.addEventListener('keyup', (e) => {
-          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = false;
-          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = false;
+          if (e.key === 'w' || e.key === 'W') {
+            this.accelHeld = false;
+            this.updatePedalClasses();
+          } else if (e.key === 's' || e.key === 'S') {
+            this.brakeHeld = false;
+            this.updatePedalClasses();
+          }
         });
 
-        // On-screen Left / Right Hold Buttons
-        const bindHoldButton = (btn, dirKey) => {
-          const startHold = (e) => {
-            e.preventDefault();
-            this.audio.ensureContext();
-            window.lastActiveWidget = 'name';
-            this.keys[dirKey] = true;
-          };
-          const endHold = () => {
-            this.keys[dirKey] = false;
-          };
-          btn.addEventListener('pointerdown', startHold);
-          btn.addEventListener('pointerup', endHold);
-          btn.addEventListener('pointerleave', endHold);
-          btn.addEventListener('pointercancel', endHold);
-        };
-        bindHoldButton(this.btnLeft, 'left');
-        bindHoldButton(this.btnRight, 'right');
-
-        // Direct Pointer / Touch Drag Steering inside the Arena Canvas
-        this.canvas.addEventListener('pointerdown', (e) => {
+        // Done Button: locks in current speedometer quantity and freezes coasting
+        this.btnDone.addEventListener('click', () => {
           this.audio.ensureContext();
-          window.lastActiveWidget = 'name';
-          const rect = this.canvas.getBoundingClientRect();
-          this.pointerTargetX = e.clientX - rect.left;
-        });
-        this.canvas.addEventListener('pointermove', (e) => {
-          if (this.pointerTargetX !== null) {
-            const rect = this.canvas.getBoundingClientRect();
-            this.pointerTargetX = e.clientX - rect.left;
+          const currentInt = Math.round(this.rawQuantity);
+
+          if (currentInt < 1) {
+            this.audio.playClick(300, 0.04, 0.08);
+            this.setError('Accelerate to at least 1 unit before pressing Done.');
+            return;
           }
-        });
-        const clearPointer = () => {
-          this.pointerTargetX = null;
-        };
-        this.canvas.addEventListener('pointerup', clearPointer);
-        this.canvas.addEventListener('pointercancel', clearPointer);
 
-        window.addEventListener('resize', () => this.resizeCanvas());
-      }
-
-      /** Pick a distinct random character for a wave slot (with occasional SPACE after >= 1 char) */
-      pickWaveCharacter(usedCharsSet) {
-        const weightedPool = 'AAAAEEEEIIIIOOOOUUUBBCDDFFGGHHJKLLMMNNPPQRRSSSTTTVWXYZ';
-        if (
-          this.letters.length > 0 &&
-          this.letters.length < this.MAX_CHARS - 1 &&
-          this.letters[this.letters.length - 1] !== ' ' &&
-          !usedCharsSet.has(' ') &&
-          Math.random() < 0.14
-        ) {
-          return ' ';
-        }
-        for (let attempt = 0; attempt < 15; attempt++) {
-          const candidate = weightedPool[Math.floor(Math.random() * weightedPool.length)];
-          if (!usedCharsSet.has(candidate)) {
-            return candidate;
-          }
-        }
-        return weightedPool[Math.floor(Math.random() * weightedPool.length)];
-      }
-
-      /**
-       * Spawn a simultaneous burst/wave of 3 to 5 distinct random letter tiles
-       * across non-overlapping horizontal lanes at the top of the arena.
-       */
-      spawnLetterWave(forcedCount = null) {
-        const w = this.logicalW || 360;
-        const count = forcedCount || (3 + Math.floor(Math.random() * 3)); // 3, 4, or 5 letters at once
-        const laneCount = Math.max(count, 5);
-        const margin = 26;
-        const usableW = w - margin * 2;
-        const laneWidth = usableW / laneCount;
-
-        // Shuffle lane indices so letters appear across varied horizontal lanes without overlapping
-        const laneIndices = Array.from({ length: laneCount }, (_, i) => i);
-        for (let i = laneIndices.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [laneIndices[i], laneIndices[j]] = [laneIndices[j], laneIndices[i]];
-        }
-
-        const chosenLanes = laneIndices.slice(0, count);
-        const usedChars = new Set();
-        this.waveCount += 1;
-
-        chosenLanes.forEach((laneIdx, idx) => {
-          const char = this.pickWaveCharacter(usedChars);
-          usedChars.add(char);
-
-          const palette = this.TILE_PALETTE[(this.waveCount + idx) % this.TILE_PALETTE.length];
-          const tileW = char === ' ' ? 44 : 30;
-          const tileH = 24;
-
-          const laneCenter = margin + (laneIdx + 0.5) * laneWidth;
-          const jitter = (Math.random() - 0.5) * Math.min(12, laneWidth * 0.25);
-          const spawnX = Math.max(tileW / 2 + 8, Math.min(w - tileW / 2 - 8, laneCenter + jitter));
-
-          this.fallingLetters.push({
-            x: spawnX,
-            y: 22 + (idx % 2) * 8,
-            w: tileW,
-            h: tileH,
-            char,
-            palette,
-            vy: 68 + Math.random() * 36, // Gentle, varied speeds so player can pick a target letter
-            swayAmp: 6 + Math.random() * 6,
-            swayPhase: Math.random() * Math.PI * 2,
-            spawnScale: 0.25 // Crisp pop-in animation on spawn
-          });
+          this.isLocked = true;
+          this.lockedQuantity = currentInt;
+          this.rawQuantity = currentInt;
+          this.accelHeld = false;
+          this.brakeHeld = false;
+          this.updatePedalClasses();
+          this.clearError();
+          this.audio.playConfirmChime();
+          this.renderGauge();
         });
 
-        this.audio.playWaveSpawnPop();
-      }
-
-      spawnCatchBurst(x, y, palette) {
-        for (let i = 0; i < 16; i++) {
-          const angle = (Math.PI * 2 * i) / 16 + (Math.random() - 0.5) * 0.3;
-          const speed = 45 + Math.random() * 115;
-          this.particles.push({
-            x,
-            y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed - 35,
-            size: 3 + Math.random() * 3,
-            color: i % 2 === 0 ? palette.fill : palette.light,
-            life: 1.0
-          });
-        }
-      }
-
-      deleteLastLetter() {
-        if (this.letters.length === 0) return;
-        this.audio.playArcadeDelete();
-        this.letters.pop();
-        this.updateUI();
-      }
-
-      clearName() {
-        if (this.letters.length === 0 && this.fallingLetters.length === 0 && this.state === 'IDLE') return;
-        this.audio.playClunk();
-        this.letters = [];
-        this.fallingLetters = [];
-        this.updateUI();
-        this.setArcadeStatus('Name box cleared — Press Start to spawn letter waves', 'sky');
-      }
-
-      getNameString() {
-        return this.letters.join('');
-      }
-
-      updateUI() {
-        const count = this.letters.length;
-
-        this.tileEls.forEach((el, idx) => {
-          el.classList.remove('empty-tile', 'cursor-tile');
-          if (idx < count) {
-            const ch = this.letters[idx];
-            el.textContent = ch === ' ' ? '␣' : ch;
-          } else if (idx === count && count < this.MAX_CHARS) {
-            el.classList.add('empty-tile', 'cursor-tile');
-            el.innerHTML = '<span class="cursor-blink">▏</span>';
-          } else {
-            el.classList.add('empty-tile');
-            el.textContent = '·';
-          }
+        // Unlock / Reset Button
+        this.btnReset.addEventListener('click', () => {
+          this.audio.ensureContext();
+          this.audio.playClick(420, 0.03, 0.07);
+          this.reset();
         });
-
-        this.charCounterEl.textContent = `${count} / ${this.MAX_CHARS} chars`;
-        this.caughtBadgeEl.textContent = `CATCH: ${this.caughtCount}`;
-
-        if (this.state === 'RUNNING') {
-          this.startLabel.textContent = 'Pause';
-          this.btnStart.classList.remove('ready-glow');
-          this.setArcadeStatus('Steer skateboard with ← / → to catch falling letters!', 'emerald');
-        } else if (this.state === 'PAUSED') {
-          this.startLabel.textContent = 'Resume';
-          this.btnStart.classList.add('ready-glow');
-          this.setArcadeStatus('Paused — Press Resume to continue catching letters', 'amber');
-        } else {
-          this.startLabel.textContent = 'Start';
-          this.btnStart.classList.toggle('ready-glow', count === 0);
-        }
-
-        this.btnDelete.disabled = count === 0;
-        this.btnClear.disabled = count === 0 && this.fallingLetters.length === 0;
-
-        this.onNameChange();
       }
 
-      setArcadeStatus(msg, tone = 'sky') {
-        this.statusTextEl.textContent = msg;
-        this.statusDotEl.style.background =
-          tone === 'emerald' ? '#34d399' : tone === 'amber' ? '#fbbf24' : '#38bdf8';
+      updatePedalClasses() {
+        this.btnAccel.classList.toggle('active-pedal', this.accelHeld && !this.isLocked);
+        this.btnBrake.classList.toggle('active-pedal', this.brakeHeld && !this.isLocked);
       }
 
-      startLoop() {
+      getQuantity() {
+        return this.isLocked ? this.lockedQuantity : Math.round(this.rawQuantity);
+      }
+
+      getStatusLabel() {
+        if (this.isLocked) return 'Locked';
+        if (this.brakeHeld) return 'Braking';
+        if (this.accelHeld) return 'Accelerating';
+        if (this.rawQuantity > 0.05) return 'Coasting';
+        return 'Idle';
+      }
+
+      setError(msg) {
+        this.errorEl.textContent = msg || '';
+      }
+
+      clearError() {
+        this.errorEl.textContent = '';
+      }
+
+      reset() {
+        this.isLocked = false;
+        this.lockedQuantity = 0;
+        this.rawQuantity = 0;
+        this.accelHeld = false;
+        this.brakeHeld = false;
+        this.lastTickStep = 0;
+        this.updatePedalClasses();
+        this.clearError();
+        this.renderGauge();
+      }
+
+      startPhysicsLoop() {
         const tick = (now) => {
-          const dt = Math.min(0.05, (now - this.lastFrameTime) / 1000);
-          this.lastFrameTime = now;
-          this.update(dt, now * 0.001);
-          this.draw();
+          const dt = Math.min(0.05, (now - this.lastTime) / 1000);
+          this.lastTime = now;
+          this.updatePhysics(dt);
           requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
       }
 
-      update(dt, timeSec) {
-        const w = this.logicalW || 360;
-        const h = this.logicalH || 245;
-        const halfBoard = this.board.width / 2;
-        const minX = halfBoard + 8;
-        const maxX = w - halfBoard - 8;
+      updatePhysics(dt) {
+        if (this.isLocked) return;
 
-        // 1. Update Skateboard Horizontal Movement
-        const moveSpeed = 325;
-        let dir = 0;
-        if (this.keys.left) dir -= 1;
-        if (this.keys.right) dir += 1;
+        const ACCEL_RATE = 28;  // ~28 units/sec upward
+        const BRAKE_RATE = 54;  // ~54 units/sec downward
+        const COAST_DRAG = 7;   // ~7 units/sec natural coasting decay
 
-        if (dir !== 0) {
-          this.board.vx = dir * moveSpeed;
-          this.board.x += this.board.vx * dt;
-        } else if (this.pointerTargetX !== null) {
-          const diff = this.pointerTargetX - this.board.x;
-          this.board.vx = Math.max(-moveSpeed * 1.4, Math.min(moveSpeed * 1.4, diff * 13));
-          this.board.x += this.board.vx * dt;
+        if (this.brakeHeld) {
+          this.rawQuantity = Math.max(this.MIN_QTY, this.rawQuantity - BRAKE_RATE * dt);
+        } else if (this.accelHeld) {
+          this.rawQuantity = Math.min(this.MAX_QTY, this.rawQuantity + ACCEL_RATE * dt);
+        } else if (this.rawQuantity > 0) {
+          this.rawQuantity = Math.max(this.MIN_QTY, this.rawQuantity - COAST_DRAG * dt);
+        }
+
+        // Play subtle mechanical tick every 2 units crossed
+        const step = Math.floor(this.rawQuantity / 2);
+        if (step !== this.lastTickStep) {
+          this.lastTickStep = step;
+          if (this.rawQuantity > 0.5) {
+            this.audio.playSpeedoTick(this.rawQuantity);
+          }
+        }
+
+        this.renderGauge();
+      }
+
+      renderGauge() {
+        const displayQty = this.getQuantity();
+        const continuousVal = this.isLocked ? this.lockedQuantity : this.rawQuantity;
+        const status = this.getStatusLabel();
+
+        // Update status pill
+        this.statusPill.textContent = status;
+        this.statusPill.dataset.status = status;
+
+        // Update 44px framed readout
+        const unitWord = displayQty === 1 ? 'unit' : 'units';
+        if (this.isLocked) {
+          this.readoutBox.classList.add('locked-state');
+          this.readoutText.textContent = `${displayQty} ${unitWord} (Locked)`;
+          this.readoutHint.textContent = 'Captured';
+          this.readoutHint.style.color = '#059669';
         } else {
-          this.board.vx *= Math.pow(0.001, dt);
-          if (Math.abs(this.board.vx) < 2) this.board.vx = 0;
-          this.board.x += this.board.vx * dt;
+          this.readoutBox.classList.remove('locked-state');
+          this.readoutText.textContent = `${displayQty} ${unitWord}`;
+          this.readoutHint.textContent = displayQty > 0 ? 'Coasting — press Done to lock' : 'Press Done to lock in';
+          this.readoutHint.style.color = 'var(--text-muted)';
         }
 
-        this.board.x = Math.max(minX, Math.min(maxX, this.board.x));
-        this.board.wheelSpin += this.board.vx * dt * 0.14;
+        // Update button disabled states
+        this.btnAccel.disabled = this.isLocked;
+        this.btnBrake.disabled = this.isLocked;
+        this.btnDone.disabled = this.isLocked;
+        this.resetLabel.textContent = this.isLocked ? 'Unlock / Reset' : 'Reset to 0';
 
-        // Update particles & floating catch popups
-        for (let i = this.particles.length - 1; i >= 0; i--) {
-          const p = this.particles[i];
-          p.x += p.vx * dt;
-          p.y += p.vy * dt;
-          p.vy += 240 * dt;
-          p.life -= dt * 1.9;
-          if (p.life <= 0) this.particles.splice(i, 1);
+        // Rotate needle (-90 deg at 0 to +90 deg at 100)
+        const needleAngle = -90 + (continuousVal / 100) * 180;
+        this.needleGroup.setAttribute('transform', `translate(140, 136) rotate(${needleAngle.toFixed(2)})`);
+        this.digitalValEl.textContent = String(displayQty);
+
+        // Update semicircular active progress arc along r = 104 centered at (140, 136)
+        if (continuousVal > 0.3) {
+          const cx = 140;
+          const cy = 136;
+          const r = 104;
+          const rad = ((needleAngle - 90) * Math.PI) / 180;
+          const ex = cx + r * Math.cos(rad);
+          const ey = cy + r * Math.sin(rad);
+          this.progressArc.setAttribute('d', `M 36 136 A ${r} ${r} 0 0 1 ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+          this.progressArc.setAttribute('stroke', this.isLocked ? '#059669' : '#2563eb');
+        } else {
+          this.progressArc.setAttribute('d', '');
         }
 
-        for (let i = this.popups.length - 1; i >= 0; i--) {
-          const pop = this.popups[i];
-          pop.y -= 38 * dt;
-          pop.life -= dt * 1.4;
-          if (pop.life <= 0) this.popups.splice(i, 1);
-        }
-
-        // 2. Spawn Multi-Letter Waves & Update Falling Letters when RUNNING
-        if (this.state !== 'RUNNING') return;
-
-        this.waveTimer += dt;
-        if (this.waveTimer >= 1.25 && this.fallingLetters.length <= 7) {
-          this.waveTimer = 0;
-          this.spawnLetterWave();
-        }
-
-        const deckTopY = h - 32;
-        const deckBottomY = h - 14;
-
-        for (let i = this.fallingLetters.length - 1; i >= 0; i--) {
-          const item = this.fallingLetters[i];
-          item.spawnScale = Math.min(1, item.spawnScale + dt * 5.5);
-          item.y += item.vy * dt;
-          item.x += Math.cos(timeSec * 2.6 + item.swayPhase) * item.swayAmp * dt;
-          item.x = Math.max(item.w / 2 + 6, Math.min(w - item.w / 2 - 6, item.x));
-
-          // Skateboard Deck Catch Collision
-          const bottom = item.y + item.h / 2;
-          const top = item.y - item.h / 2;
-          const withinX = Math.abs(item.x - this.board.x) <= halfBoard + item.w * 0.42;
-          const withinY = bottom >= deckTopY && top <= deckBottomY;
-
-          if (withinX && withinY) {
-            this.fallingLetters.splice(i, 1);
-            this.spawnCatchBurst(item.x, deckTopY, item.palette);
-            this.audio.playArcadeCatch();
-
-            if (this.letters.length < this.MAX_CHARS) {
-              this.letters.push(item.char);
-              this.caughtCount += 1;
-              const label = item.char === ' ' ? '+SPACE' : `+${item.char}`;
-              this.popups.push({ x: item.x, y: deckTopY - 8, text: label, life: 1.0 });
-              this.updateUI();
-
-              if (this.letters.length >= this.MAX_CHARS) {
-                this.state = 'PAUSED';
-                this.updateUI();
-                this.setArcadeStatus('16-character Name Box complete!', 'emerald');
-              }
-            }
-            continue;
-          }
-
-          if (top > h + 10) {
-            this.fallingLetters.splice(i, 1);
-          }
-        }
-      }
-
-      draw() {
-        const w = this.logicalW || 360;
-        const h = this.logicalH || 245;
-        const ctx = this.ctx;
-
-        ctx.clearRect(0, 0, w, h);
-
-        // 1. Clean Midnight Skate Park / Arcade Sky Backdrop (No Bricks!)
-        const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
-        bgGrad.addColorStop(0, '#080c16');
-        bgGrad.addColorStop(1, '#111827');
-        ctx.fillStyle = bgGrad;
-        ctx.fillRect(0, 0, w, h);
-
-        // Subtle vertical lane guide lines
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.05)';
-        ctx.lineWidth = 1;
-        for (let gx = 24; gx < w; gx += 28) {
-          ctx.beginPath();
-          ctx.moveTo(gx, 0);
-          ctx.lineTo(gx, h);
-          ctx.stroke();
-        }
-
-        // Top spawn horizon glow bar
-        const topGlow = ctx.createLinearGradient(0, 0, 0, 26);
-        topGlow.addColorStop(0, 'rgba(56, 189, 248, 0.16)');
-        topGlow.addColorStop(1, 'rgba(56, 189, 248, 0)');
-        ctx.fillStyle = topGlow;
-        ctx.fillRect(0, 0, w, 26);
-
-        // 2. Simultaneously Spawned Falling Letter Tiles
-        this.fallingLetters.forEach((item) => {
-          ctx.save();
-          ctx.translate(item.x, item.y);
-          ctx.scale(item.spawnScale, item.spawnScale);
-
-          const left = -item.w / 2;
-          const top = -item.h / 2;
-
-          ctx.shadowColor = item.palette.fill;
-          ctx.shadowBlur = 10;
-
-          ctx.fillStyle = item.palette.fill;
-          ctx.beginPath();
-          ctx.roundRect(left, top, item.w, item.h, 6);
-          ctx.fill();
-
-          ctx.shadowBlur = 0;
-          ctx.strokeStyle = item.palette.light;
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-
-          ctx.fillStyle = '#ffffff';
-          ctx.font = item.char === ' ' ? '800 10px sans-serif' : '800 15px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(item.char === ' ' ? 'SPACE' : item.char, 0, 0.5);
-          ctx.restore();
-        });
-
-        // 3. Particle Bursts & Catch Popups
-        this.particles.forEach((p) => {
-          ctx.globalAlpha = Math.max(0, p.life);
-          ctx.fillStyle = p.color;
-          ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
-        });
-        ctx.globalAlpha = 1;
-
-        this.popups.forEach((pop) => {
-          ctx.save();
-          ctx.globalAlpha = Math.max(0, pop.life);
-          ctx.font = '800 13px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillStyle = '#fde047';
-          ctx.fillText(pop.text, pop.x, pop.y);
-          ctx.restore();
-        });
-
-        // 4. Skate Ramp / Concrete Floor Line
-        const floorY = h - 8;
-        ctx.strokeStyle = 'rgba(148, 163, 184, 0.35)';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(8, floorY);
-        ctx.lineTo(w - 8, floorY);
-        ctx.stroke();
-
-        // 5. Detailed Retro Skateboard Catcher
-        this.drawSkateboard(ctx, this.board.x, h - 25, this.board.width, this.board.wheelSpin);
-
-        // 6. Idle / Paused Overlay Prompt
-        if (this.state !== 'RUNNING') {
-          ctx.save();
-          ctx.fillStyle = 'rgba(7, 10, 18, 0.55)';
-          ctx.fillRect(0, 56, w, h - 102);
-
-          ctx.font = '800 13px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillStyle = '#fef3c7';
-          const msg =
-            this.state === 'PAUSED'
-              ? 'PAUSED — PRESS RESUME TO CONTINUE'
-              : 'PRESS START TO SPAWN FALLING LETTERS';
-          ctx.fillText(msg, w / 2, h / 2 - 4);
-          ctx.restore();
-        }
-      }
-
-      drawSkateboard(ctx, cx, deckY, width, wheelSpin) {
-        const halfW = width / 2;
-        const tilt = Math.max(-0.08, Math.min(0.08, this.board.vx * 0.00022));
-
-        ctx.save();
-        ctx.translate(cx, deckY);
-        ctx.rotate(tilt);
-
-        // Maple Wood Deck with Upturned Kicktails
-        ctx.strokeStyle = '#d97706';
-        ctx.lineWidth = 5.5;
-        ctx.lineCap = 'round';
-        ctx.beginPath();
-        ctx.moveTo(-halfW, -5);
-        ctx.quadraticCurveTo(-halfW + 10, 1, -halfW + 18, 1);
-        ctx.lineTo(halfW - 18, 1);
-        ctx.quadraticCurveTo(halfW - 10, 1, halfW, -5);
-        ctx.stroke();
-
-        // Black Grip Tape
-        ctx.strokeStyle = '#18181b';
-        ctx.lineWidth = 2.6;
-        ctx.beginPath();
-        ctx.moveTo(-halfW + 1, -6.5);
-        ctx.quadraticCurveTo(-halfW + 10, -0.5, -halfW + 18, -0.5);
-        ctx.lineTo(halfW - 18, -0.5);
-        ctx.quadraticCurveTo(halfW - 10, -0.5, halfW - 1, -6.5);
-        ctx.stroke();
-
-        // Red Racing Stripe
-        ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 1.6;
-        ctx.beginPath();
-        ctx.moveTo(-halfW + 18, 3);
-        ctx.lineTo(halfW - 18, 3);
-        ctx.stroke();
-
-        // Trucks & Spinning Polyurethane Wheels
-        [-halfW + 19, halfW - 19].forEach((tx) => {
-          ctx.fillStyle = '#94a3b8';
-          ctx.fillRect(tx - 5, 3.5, 10, 3);
-
-          const wheelR = 6.2;
-          ctx.fillStyle = '#f8fafc';
-          ctx.beginPath();
-          ctx.arc(tx, 10.5, wheelR, 0, Math.PI * 2);
-          ctx.fill();
-
-          ctx.strokeStyle = '#0284c7';
-          ctx.lineWidth = 1.8;
-          ctx.stroke();
-
-          ctx.fillStyle = '#ef4444';
-          ctx.beginPath();
-          ctx.arc(tx, 10.5, 2.1, 0, Math.PI * 2);
-          ctx.fill();
-
-          ctx.strokeStyle = '#0f172a';
-          ctx.lineWidth = 1.1;
-          ctx.beginPath();
-          ctx.moveTo(tx + Math.cos(wheelSpin) * 2, 10.5 + Math.sin(wheelSpin) * 2);
-          ctx.lineTo(tx + Math.cos(wheelSpin) * 5.2, 10.5 + Math.sin(wheelSpin) * 5.2);
-          ctx.stroke();
-        });
-
-        ctx.restore();
+        this.onChange();
       }
     }
 
     /**
      * ==========================================================================
-     * 5. UNIFIED DISPATCH SUMMARY & THEME CONTROLLER
+     * 6. FORM SUBMISSION, VALIDATION & SOUND CONTROLS
      * ==========================================================================
      */
-    function setupUnifiedDispatch(phoneApp, datePicker, namePicker) {
-      const summaryName = document.getElementById('summary-name');
-      const summaryPhone = document.getElementById('summary-phone');
-      const summaryDate = document.getElementById('summary-date');
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = new MinimalSoundEngine();
 
-      const copyBtn = document.getElementById('btn-copy-all');
-      const copyLabel = document.getElementById('copy-btn-label');
-      const submitBtn = document.getElementById('btn-submit-dispatch');
-      const confirmBanner = document.getElementById('dispatch-confirm-banner');
-      const confirmText = document.getElementById('dispatch-confirm-text');
-      const dismissBtn = document.getElementById('btn-dismiss-banner');
-
-      const refreshSummary = () => {
-        const rawName = namePicker.getNameString().trim();
-        const numStr = phoneApp.getFormattedNumber(true);
-        const isoStr = datePicker.getISODate();
-        const degStr = `${datePicker.angleDeg.toFixed(1)}° / 360°`;
-
-        summaryName.textContent = rawName.length > 0 ? rawName : '— (Unassigned) —';
-        summaryPhone.textContent = numStr;
-        summaryDate.textContent = `${isoStr} (${degStr})`;
-      };
-
-      phoneApp.onStateChange = refreshSummary;
-      datePicker.onDateChange = refreshSummary;
-      namePicker.onNameChange = refreshSummary;
-      refreshSummary();
-
-      copyBtn.addEventListener('click', () => {
-        phoneApp.audio.playButtonPress();
-        const rawName = namePicker.getNameString().trim() || 'Unassigned';
-        const numStr = phoneApp.getFormattedNumber(true);
-        const fullDateStr = datePicker.getFullFormattedDate();
-        const isoStr = datePicker.getISODate();
-        const degStr = `${datePicker.angleDeg.toFixed(1)}° / 360°`;
-        const payload = `Name: ${rawName} | Phone: ${numStr} | Date: ${fullDateStr} (${isoStr}, ${degStr})`;
-
-        const tempInput = document.createElement('textarea');
-        tempInput.value = payload;
-        tempInput.setAttribute('readonly', '');
-        tempInput.style.position = 'fixed';
-        tempInput.style.opacity = '0';
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        try {
-          document.execCommand('copy');
-        } catch (_) {}
-        document.body.removeChild(tempInput);
-
-        copyLabel.textContent = 'Copied All!';
-        setTimeout(() => {
-          copyLabel.textContent = 'Copy All Details';
-        }, 1800);
-      });
-
-      submitBtn.addEventListener('click', () => {
-        phoneApp.audio.ensureContext();
-        phoneApp.audio.playDispatchChime();
-
-        const rawName = namePicker.getNameString().trim() || 'Anonymous Operator';
-        const numStr = phoneApp.getFormattedNumber(true);
-        const fullDateStr = datePicker.getFullFormattedDate();
-        const degStr = `${datePicker.angleDeg.toFixed(1)}° / 360°`;
-
-        confirmText.textContent = `DISPATCHED FOR ${rawName.toUpperCase()} • LINE ${numStr} • ORBIT ${fullDateStr} (${degStr})`;
-        confirmBanner.classList.remove('hidden');
-
-        if (phoneApp.dialedDigits.length === 10 && phoneApp.mode === 'IDLE') {
-          phoneApp.placeCall();
-        }
-      });
-
-      dismissBtn.addEventListener('click', () => {
-        phoneApp.audio.playButtonPress();
-        confirmBanner.classList.add('hidden');
-      });
-    }
-
-    function setupThemeAndAudioControls(sharedAudio) {
-      const swatches = document.querySelectorAll('.theme-swatch');
-      swatches.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          sharedAudio.playButtonPress();
-          const theme = btn.dataset.themeTarget;
-          document.body.dataset.theme = theme;
-          swatches.forEach((s) => s.classList.toggle('active', s === btn));
-        });
-      });
-
+      // Sound Toggle
       const soundBtn = document.getElementById('btn-sound-toggle');
-      const soundLabel = document.getElementById('sound-label');
+      const soundLabel = document.getElementById('sound-toggle-label');
       const iconOn = document.getElementById('icon-sound-on');
       const iconOff = document.getElementById('icon-sound-off');
 
       soundBtn.addEventListener('click', () => {
-        const nextMuted = !sharedAudio.muted;
-        sharedAudio.setMuted(nextMuted);
+        const nextMuted = !audio.muted;
+        audio.setMuted(nextMuted);
         soundBtn.setAttribute('aria-pressed', String(!nextMuted));
         soundLabel.textContent = nextMuted ? 'Muted' : 'Sound On';
         iconOn.classList.toggle('hidden', nextMuted);
         iconOff.classList.toggle('hidden', !nextMuted);
-        if (!nextMuted) {
-          sharedAudio.playButtonPress();
-        }
+        if (!nextMuted) audio.playClick();
       });
-    }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      window.lastActiveWidget = 'phone';
-      const sharedAudio = new RetroAudioEngine();
-      setupThemeAndAudioControls(sharedAudio);
-      window.rotaryPhoneApp = new RotaryTelephoneApp(sharedAudio);
-      window.orbitalDatePicker = new OrbitalDatePicker(sharedAudio);
-      window.nameArcadePicker = new SkateboardNamePicker(sharedAudio);
-      setupUnifiedDispatch(window.rotaryPhoneApp, window.orbitalDatePicker, window.nameArcadePicker);
+      const confirmCard = document.getElementById('confirmation-card');
+      const hideConfirmOnEdit = () => {
+        if (!confirmCard.classList.contains('hidden')) {
+          confirmCard.classList.add('hidden');
+        }
+      };
+
+      const namePicker = new FullNameSkatePicker(audio, hideConfirmOnEdit);
+      const phonePicker = new RotaryPhonePicker(audio, hideConfirmOnEdit);
+      const dobPicker = new OrbitalDobPicker(audio, hideConfirmOnEdit);
+      const qtyPicker = new SpeedometerQuantityPicker(audio, hideConfirmOnEdit);
+
+      const submitBtn = document.getElementById('btn-submit-form');
+      const confirmNameEl = document.getElementById('confirm-name');
+      const confirmPhoneEl = document.getElementById('confirm-phone');
+      const confirmDobEl = document.getElementById('confirm-dob');
+      const confirmQtyEl = document.getElementById('confirm-qty');
+
+      const copyBtn = document.getElementById('btn-copy-details');
+      const copyLabel = document.getElementById('copy-details-label');
+      const resetFormBtn = document.getElementById('btn-reset-form');
+
+      let lastSubmittedSummary = '';
+
+      submitBtn.addEventListener('click', () => {
+        audio.ensureContext();
+        let valid = true;
+
+        // 1. Validate Full Name
+        const rawName = namePicker.getValue().trim();
+        if (rawName.length === 0) {
+          namePicker.setError('Please enter your full name using the skateboard letter catcher.');
+          valid = false;
+        } else {
+          namePicker.clearError();
+        }
+
+        // 2. Validate 10-Digit Phone Number
+        if (phonePicker.digits.length !== 10) {
+          phonePicker.setError('Please dial all 10 digits on the rotary dial.');
+          valid = false;
+        } else {
+          phonePicker.clearError();
+        }
+
+        // 3. Validate Date of Birth
+        const selectedDob = dobPicker.getSelectedDate();
+        const today = new Date();
+        if (isNaN(selectedDob.getTime()) || selectedDob > today) {
+          dobPicker.setError('Please select a valid date of birth in the past.');
+          valid = false;
+        } else {
+          dobPicker.clearError();
+        }
+
+        // 4. Validate Preferred Quantity (>= 1 and Locked via Done button)
+        const qty = qtyPicker.getQuantity();
+        if (!qtyPicker.isLocked || qty < 1) {
+          qtyPicker.setError('Please accelerate to at least 1 unit and press Done to lock in your quantity.');
+          valid = false;
+        } else {
+          qtyPicker.clearError();
+        }
+
+        if (!valid) {
+          audio.playClick(280, 0.04, 0.08);
+          return;
+        }
+
+        // All 4 fields valid -> show Registration Submitted confirmation card
+        audio.playConfirmChime();
+
+        const cleanPhone = phonePicker.getCleanNumber();
+        const formattedDob = `${dobPicker.getFormattedDate()} (${dobPicker.getISODate()})`;
+        const formattedQty = `${qty} ${qty === 1 ? 'unit' : 'units'}`;
+
+        confirmNameEl.textContent = rawName;
+        confirmPhoneEl.textContent = cleanPhone;
+        confirmDobEl.textContent = formattedDob;
+        confirmQtyEl.textContent = formattedQty;
+
+        lastSubmittedSummary = [
+          `Full Name: ${rawName}`,
+          `Phone Number: ${cleanPhone}`,
+          `Date of Birth: ${formattedDob}`,
+          `Preferred Quantity: ${formattedQty}`
+        ].join('\n');
+
+        confirmCard.classList.remove('hidden');
+        confirmCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      copyBtn.addEventListener('click', () => {
+        audio.playClick();
+        if (!lastSubmittedSummary) return;
+
+        const ta = document.createElement('textarea');
+        ta.value = lastSubmittedSummary;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+        } catch (_) {}
+        document.body.removeChild(ta);
+
+        copyLabel.textContent = 'Copied!';
+        setTimeout(() => {
+          copyLabel.textContent = 'Copy Details';
+        }, 1600);
+      });
+
+      resetFormBtn.addEventListener('click', () => {
+        audio.playClick(360, 0.035, 0.07);
+        namePicker.reset();
+        phonePicker.reset();
+        dobPicker.reset();
+        qtyPicker.reset();
+        confirmCard.classList.add('hidden');
+      });
     });
   </script>
 </body>
