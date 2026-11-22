@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WELCOME TO MY WEB PAGE!!! (BEST VIEWED IN 640x480)</title>
+  <!-- Load Tailwind CSS for layout utilities while overriding with pure 1997 chaos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ==========================================================================
+       INTENTIONALLY AWFUL UI & EYE-STRAINING COLOR PALETTE
+       ========================================================================== */
+    :root {
+      --lime: #00FF00;
+      --magenta: #FF00FF;
+      --yellow: #FFFF00;
+      --cyan: #00FFFF;
+      --royal-blue: #0000FF;
+      --dark-red: #800000;
+      --neon-orange: #FF6600;
+      --chartreuse: #CCFF00;
+      --chaos-level: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Noisy tiled electric lime background */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--lime);
+      background-image: 
+        radial-gradient(#ff00ff 1px, transparent 1px),
+        radial-gradient(#00ffff 1px, #00ff00 1px);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 8px;
+      color: var(--yellow);
+      font-family: "Comic Sans MS", "Chalkboard SE", cursive;
+      overflow-x: hidden;
+      padding-top: 72px;
+      padding-bottom: 84px;
+      transition: filter 0.2s ease;
+    }
+
+    /* Progressive Awfulness Mode classes */
+    body.max-chaos {
+      background-image: 
+        repeating-linear-gradient(45deg, #00FF00 0, #00FF00 10px, #CCFF00 10px, #CCFF00 20px),
+        radial-gradient(#FF00FF 2px, transparent 2px);
+      background-size: 28px 28px;
+    }
+
+    /* Blinking animation for maximum distraction */
+    @keyframes retroBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0.1; }
+    }
+
+    @keyframes colorFlash {
+      0% { background-color: #FF00FF; color: #FFFF00; }
+      33% { background-color: #00FFFF; color: #FF00FF; }
+      66% { background-color: #FFFF00; color: #0000FF; }
+      100% { background-color: #FF00FF; color: #FFFF00; }
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .blink-fast {
+      animation: retroBlink 0.7s infinite;
+    }
+
+    .flash-banner {
+      animation: colorFlash 1.2s infinite;
+    }
+
+    /* Font Mixing Classes */
+    .font-comic { font-family: "Comic Sans MS", "Comic Neue", cursive !important; }
+    .font-papyrus { font-family: "Papyrus", fantasy, serif !important; }
+    .font-times { font-family: "Times New Roman", Times, serif !important; }
+    .font-courier { font-family: "Courier New", Courier, monospace !important; }
+
+    /* Thick 8px ridge & inset borders */
+    .border-ridge-orange {
+      border: 8px ridge #FF6600;
+    }
+    .border-inset-gray {
+      border: 8px inset #C0C0C0;
+    }
+    .border-outset-magenta {
+      border: 8px outset #FF00FF;
+    }
+
+    /* Chromatic Vibration Text Combinations */
+    .vibrate-yellow-lime {
+      background-color: #00FF00;
+      color: #FFFF00;
+      text-shadow: 1px 1px 0px #00FFFF;
+    }
+    .vibrate-cyan-magenta {
+      background-color: #FF00FF;
+      color: #00FFFF;
+      text-shadow: -1px 0px 0px #FFFF00;
+    }
+
+    /* Hostile Link Styling */
+    .awful-link {
+      background-color: #800000;
+      color: #0000FF !important;
+      text-decoration: underline;
+      padding: 2px 6px;
+      display: inline-block;
+      font-family: "Times New Roman", serif;
+      border: 3px inset #FF6600;
+    }
+    .awful-link:visited {
+      color: #551A8B !important;
+    }
+
+    /* Sticky Top Header that eats screen space */
+    .sticky-header-chaos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      background-color: #FF00FF;
+      border-bottom: 8px ridge #FF6600;
+      color: #00FFFF;
+    }
+
+    /* Sticky Footer that also eats screen space */
+    .sticky-footer-chaos {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      background-color: #800000;
+      border-top: 8px inset #CCFF00;
+      color: #FFFF00;
+    }
+
+    /* Awkward Floating Boxes with Zero Padding */
+    .float-left-awkward {
+      float: left;
+      margin: 0;
+      padding: 0;
+    }
+    .float-right-awkward {
+      float: right;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Custom Hostile Modal Overlay (Replaces alert()) */
+    .hostile-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 0, 255, 0.65);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .hostile-modal-backdrop.active {
+      display: flex;
+    }
+
+    /* Dodging Floating Chat Bubble */
+    #annoying-chat-widget {
+      position: fixed;
+      bottom: 92px;
+      right: 12px;
+      z-index: 950;
+      transition: all 0.15s ease-out;
+      max-width: 260px;
+    }
+
+    /* Marquee replacement for modern browsers */
+    .marquee-track {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marqueeScroll 9s linear infinite;
+    }
+  </style>
+</head>
+<body id="page-body">
+
+  <!-- ========================================================================
+       STICKY HEADER (Cluttered, unlabeled icons, tiny dropdowns, marquee)
+       ======================================================================== -->
+  <header class="sticky-header-chaos p-1">
+    <div class="flex flex-wrap items-center justify-between gap-1">
+      <div class="flex items-center gap-1">
+        <!-- Unlabeled mystery navigation icons -->
+        <button onclick="triggerVagueError('NAVIGATION MODULE #404 OFFLINE')" title="" class="bg-[#00FF00] text-[#0000FF] border-4 outset border-[#FFFF00] px-1 text-xs font-courier">
+          [?]
+        </button>
+        <button onclick="triggerVagueError('ACCESS DENIED TO GUESTS')" title="" class="bg-[#800000] text-[#00FFFF] border-4 inset border-[#FF6600] px-1 text-xs font-papyrus">
+          [~]
+        </button>
+        <select onchange="handleMysteryDropdown(this)" class="bg-[#FFFF00] text-[#FF00FF] text-[10px] font-times border-2 border-[#0000FF] p-0">
+          <option value="">--GO WHERE?--</option>
+          <option value="top">Go Up Slightly</option>
+          <option value="bottom">Jump To Confusion</option>
+          <option value="reset">Erase Everything</option>
+        </select>
+      </div>
+
+      <!-- Progressive Awfulness Toggle -->
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] font-courier bg-[#0000FF] text-[#FFFF00] px-1">
+          CHAOS LEVEL: <strong id="chaos-percent">15%</strong>
+        </span>
+        <button id="toggle-chaos-btn" onclick="toggleManualChaos()" class="bg-[#CCFF00] text-[#800000] font-comic text-xs px-2 py-0.5 border-4 ridge border-[#FF6600] cursor-pointer">
+          FORCE MAX AWFULNESS
+        </button>
+      </div>
+    </div>
+    <div class="marquee-track bg-[#00FF00] text-[#FF00FF] font-papyrus text-xs font-bold border-t-2 border-[#0000FF] mt-1">
+      <div class="marquee-content">
+        *** WELCOME TO THE ULTIMATE WEB PORTAL *** DO NOT SCROLL DOWN UNLESS YOU HAVE SUNGLASSES *** CONGRATULATIONS YOU ARE VISITOR #0000013 *** CLICK HERE FOR FREE ERRORS ***
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       ZONE 1: ALMOST PASSABLE TOP SECTION (Deceptive calm before the storm)
+       ======================================================================== -->
+  <section id="zone-calm" class="max-w-4xl mx-auto mt-3 p-4 bg-[#e8f5e9] text-[#1b5e20] border-4 border-[#81c784] rounded-none shadow-none transition-all duration-300">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-2 border-[#a5d6a7] pb-2 mb-3">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-[#388e3c] font-sans">Zone 01 // Clean Modern Landing</span>
+        <h2 class="text-xl font-sans font-semibold text-[#1b5e20]">Welcome to Acme Synergy Solutions</h2>
+      </div>
+      <span class="text-xs font-sans bg-[#c8e6c9] px-2 py-1 text-[#1b5e20]">Scroll down to experience progressive UI degradation &darr;</span>
+    </div>
+    <p class="text-sm font-sans leading-relaxed text-[#2e7d32] mb-2">
+      Notice how readable this top banner is? Enjoy this brief moment of balanced contrast, consistent sans-serif typography, and aligned margins. As you scroll further down the page, our patented <strong>1997 Geocities Chromatic Vibration Engine™</strong> will progressively activate.
+    </p>
+    <div class="flex gap-2 text-xs font-sans">
+      <a href="#zone-chaos-form" class="bg-[#2e7d32] text-white px-3 py-1.5 no-underline">Skip to Hostile Form</a>
+      <button onclick="scrollToChaos()" class="border border-[#2e7d32] text-[#2e7d32] px-3 py-1.5 bg-transparent cursor-pointer">Trigger Immediate Eye Strain</button>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ZONE 2: ESCALATING TYPOGRAPHY CHAOS & BROKEN ALIGNMENT
+       ======================================================================== -->
+  <main class="w-full px-1 mt-4">
+    
+    <!-- Right-aligned giant heading for a trivial side note -->
+    <div class="border-ridge-orange vibrate-cyan-magenta p-2 mb-3">
+      <h1 class="font-times text-[48px] leading-none uppercase text-right m-0 tracking-tighter">
+        SIDE NOTE: TODAY IS A DAY OF THE WEEK!!
+      </h1>
+      <p class="text-[10px] font-courier text-left bg-[#800000] text-[#FFFF00] p-1 mt-1">
+        CRITICAL LEGAL NOTICE: By reading this 10px sentence you legally agree to surrender your mouse cursor, your retina comfort, and all 47 browser tabs currently open. Pricing starts at $9,999.99 per millisecond.
+      </p>
+    </div>
+
+    <!-- Fast Auto-Advancing Carousel (Advances every 1.5 seconds!) -->
+    <section class="border-inset-gray bg-[#FF00FF] p-1 mb-4">
+      <div class="flex justify-between items-center bg-[#0000FF] text-[#FFFF00] px-1">
+        <span class="font-papyrus text-sm font-bold">ULTRA-FAST UNREADABLE NEWS TICKER (1.5s AUTO-SKIP!)</span>
+        <button onclick="speedUpCarousel()" class="bg-[#00FF00] text-[#800000] text-[10px] font-courier px-1 border-2 border-[#FFFF00]">
+          MAKE IT FASTER!
+        </button>
+      </div>
+      <div id="hostile-carousel" class="p-3 text-center min-h-[95px] flex flex-col justify-center items-center vibrate-yellow-lime border-4 border-[#00FFFF]">
+        <div id="carousel-slide-title" class="font-papyrus text-2xl font-bold uppercase text-[#FF00FF]">
+          SLIDE 1: TRY READING THIS BEFORE IT VANISHES!!
+        </div>
+        <p id="carousel-slide-body" class="font-times text-xs text-[#0000FF] bg-[#CCFF00] px-2 mt-1">
+          Important account security instructions are hidden on Slide 4 which only stays visible for 1.5 seconds!
+        </p>
+      </div>
+    </section>
+
+    <!-- Cluttered, Unaligned Layout with Awkward Floats and Zero Padding -->
+    <section class="border-outset-magenta bg-[#00FF00] text-[#FFFF00] mb-4 overflow-hidden">
+      <h2 class="font-papyrus text-3xl text-right bg-[#800000] text-[#00FFFF] m-0 pr-1 border-b-4 border-[#FF6600]">
+        WHY OUR DESIGN IS SUPERIOR (CENTERED WALL OF TEXT)
+      </h2>
+
+      <!-- Awkward Left-Floated SVG Graphic with ZERO margin/padding so text collides -->
+      <div class="float-left-awkward bg-[#FF00FF] border-4 border-[#0000FF]">
+        <svg width="130" height="130" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="130" height="130" fill="#FF00FF"/>
+          <polygon points="65,5 125,120 5,120" fill="#00FF00" stroke="#FFFF00" stroke-width="5"/>
+          <circle cx="65" cy="75" r="28" fill="#00FFFF" stroke="#800000" stroke-width="4"/>
+          <text x="14" y="68" fill="#0000FF" font-family="Comic Sans MS" font-size="15" font-weight="bold">CLICK ME?</text>
+          <text x="22" y="95" fill="#800000" font-family="Times New Roman" font-size="11">NO PADDING!</text>
+        </svg>
+      </div>
+
+      <!-- Awkward Right-Floated Box with ZERO margin/padding -->
+      <div class="float-right-awkward bg-[#800000] text-[#00FFFF] border-4 ridge border-[#CCFF00] w-36 text-right">
+        <div class="font-courier text-[10px] leading-tight">
+          URGENT WIDGET:<br/>
+          CPU TEMP: 999&deg;F<br/>
+          RAM: DOWNLOADING...<br/>
+          <a href="#nowhere" onclick="event.preventDefault(); triggerVagueError('LINK BROKEN SINCE 1998');" class="awful-link">UNVISITED LINK</a><br/>
+          <a href="#visited-demo" onclick="event.preventDefault(); triggerVagueError('ALREADY VISITED THIS ERROR');" class="awful-link" style="color:#551A8B !important;">VISITED LINK</a>
+        </div>
+      </div>
+
+      <!-- Center-aligned long paragraph colliding directly with floated boxes -->
+      <p class="text-center font-comic text-[15px] leading-tight m-0 p-0 vibrate-yellow-lime">
+        Welcome to the pinnacle of web craftsmanship where whitespace is considered wasted real estate and every single pixel must scream for your undivided attention! Notice how this center-aligned paragraph slams directly into the edges of the left and right floated boxes without a single pixel of padding or margin? That is intentional friction! Furthermore, we have combined <span class="font-times text-lg bg-[#FF00FF] text-[#00FFFF]">Times New Roman</span>, <span class="font-papyrus text-xl bg-[#800000] text-[#FFFF00]">Papyrus</span>, <span class="font-courier text-xs bg-[#0000FF] text-[#00FF00]">Courier New</span>, and <span class="font-comic font-bold underline">Comic Sans MS</span> all inside the exact same paragraph to ensure your visual cortex never relaxes! If you are looking for helpful navigation, please click one of the royal blue links inside the dark red boxes, though we cannot guarantee they will take you anywhere useful.
+      </p>
+      <div style="clear: both;"></div>
+    </section>
+
+    <!-- ======================================================================
+         ZONE 3: BROKEN VISUAL HIERARCHY & HOSTILE FORM
+         ====================================================================== -->
+    <section id="zone-chaos-form" class="border-ridge-orange bg-[#FF00FF] p-2 mb-6">
+      <div class="bg-[#00FF00] border-inset-gray p-1 mb-2">
+        <h3 class="font-times text-[44px] leading-none text-right text-[#0000FF] uppercase m-0">
+          MANDATORY REGISTRATION FORM!!
+        </h3>
+        <p class="font-courier text-[10px] text-[#800000] text-center m-0">
+          *ALL FIELDS ARE REQUIRED EVEN THE ONES WE DO NOT SHOW YOU. ERRORS WILL WIPE YOUR PROGRESS.*
+        </p>
+      </div>
+
+      <!-- GIANT BLINKING 'CANCEL / RESET ALL' BUTTON DOMINATING THE SCREEN -->
+      <div class="my-3 text-center">
+        <button type="button" onclick="nukeEntireForm()" class="w-full py-6 px-4 bg-[#FF6600] text-[#FFFF00] border-8 outset border-[#00FFFF] font-papyrus text-3xl sm:text-5xl font-black uppercase tracking-widest blink-fast shadow-2xl cursor-pointer">
+          &#9888; CANCEL / RESET ALL DATA &#9888;
+        </button>
+        <div class="text-[10px] font-courier text-[#00FFFF] bg-[#800000] mt-1">
+          (Warning: Clicking the giant orange button above immediately deletes everything you typed!)
+        </div>
+      </div>
+
+      <!-- Hostile Form Inputs -->
+      <form id="hostile-form" onsubmit="handleHostileSubmit(event)" class="space-y-2 border-4 border-[#0000FF] bg-[#CCFF00] p-2">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-[#00FF00] border-2 border-[#FF00FF] p-1">
+          <label for="f-name" class="font-papyrus text-lg text-[#FF00FF] font-bold">
+            ENTER YOUR FULL LEGAL NAME (NO VOWELS ALLOWED):
+          </label>
+          <input id="f-name" type="text" placeholder="Type here..." class="bg-[#FFFF00] text-[#00FFFF] font-courier text-sm border-4 inset border-[#800000] p-1 w-full sm:w-1/2" />
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-[#FF00FF] border-2 border-[#00FFFF] p-1">
+          <label for="f-email" class="font-times text-xs text-[#FFFF00]">
+            E-MAIL ADDRESS (MUST END IN .GOV.AOL.1997):
+          </label>
+          <input id="f-email" type="text" placeholder="user@geocities" class="bg-[#800000] text-[#00FF00] font-comic text-xs border-4 ridge border-[#FF6600] p-1 w-full sm:w-1/2" />
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-[#00FF00] border-2 border-[#0000FF] p-1">
+          <label for="f-phone" class="font-courier text-base text-[#0000FF] font-bold">
+            PHONE NUMBER (SLIDE TO SELECT):
+          </label>
+          <div class="flex items-center gap-2 w-full sm:w-1/2">
+            <input id="f-phone" type="range" min="1000000000" max="9999999999" value="5551234567" oninput="document.getElementById('phone-readout').innerText = this.value" class="w-full accent-[#FF00FF]" />
+            <span id="phone-readout" class="font-times text-[10px] bg-[#800000] text-[#FFFF00] px-1">5551234567</span>
+          </div>
+        </div>
+
+        <!-- Cluttered Distraction Banners Above the Tiny Submit Button -->
+        <div class="flash-banner border-4 border-[#0000FF] p-2 text-center font-papyrus text-lg font-bold">
+          *** FREE RINGTONES!! CLICK HERE TO CLAIM YOUR MIDI FILE!! ***
+        </div>
+
+        <div class="bg-[#800000] text-[#0000FF] p-1 text-center border-4 inset border-[#FF6600]">
+          <a href="#fake1" onclick="event.preventDefault(); triggerVagueError('INVALID INPUT!');" class="awful-link">DOWNLOAD TOOLBAR.EXE</a>
+          <a href="#fake2" onclick="event.preventDefault(); triggerVagueError('INVALID INPUT!');" class="awful-link">WIN A FREE IPOD NANO</a>
+          <a href="#fake3" onclick="event.preventDefault(); triggerVagueError('INVALID INPUT!');" class="awful-link">HOT SINGLES IN YOUR SUBNET</a>
+        </div>
+
+        <!-- Buried, Tiny, Low-Contrast Submit Button -->
+        <div class="pt-4 pb-1 flex justify-between items-end">
+          <span class="text-[10px] font-times text-[#800000]">
+            Note: Clicking submit may randomly clear your form for security.
+          </span>
+          <button type="submit" class="bg-[#b8e600] text-[#99cc00] border border-[#a3d100] text-[10px] font-times px-1 py-0 cursor-pointer">
+            submit
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       DODGING FLOATING "NEED HELP?" CHAT POPUP (Covers bottom-right corner)
+       ======================================================================== -->
+  <div id="annoying-chat-widget" class="border-ridge-orange bg-[#FF00FF] text-[#FFFF00] p-2 shadow-2xl">
+    <div class="flex justify-between items-center bg-[#0000FF] text-[#00FFFF] px-1 mb-1">
+      <span class="font-papyrus text-xs font-bold blink-fast">LIVE AGENT: CLIPPY_97</span>
+      <button id="dodge-close-btn" onmouseover="dodgeChatBox()" onclick="dodgeChatBox()" class="bg-[#800000] text-[#FFFF00] text-[10px] font-courier px-1 border border-[#00FF00] cursor-pointer">
+        [X]
+      </button>
+    </div>
+    <p class="font-comic text-xs text-center m-0 vibrate-cyan-magenta p-1">
+      NEED HELP?! IT LOOKS LIKE YOU ARE TRYING TO READ THIS PAGE! WOULD YOU LIKE ME TO BLOCK MORE TEXT?!
+    </p>
+    <div class="mt-1 flex justify-between gap-1">
+      <button onclick="spawnMoreAnnoyance()" class="bg-[#00FF00] text-[#0000FF] font-times text-[10px] px-1 border-2 border-[#FFFF00] w-full cursor-pointer">
+        YES PLEASE!
+      </button>
+      <button onmouseover="dodgeChatBox()" onclick="dodgeChatBox()" class="bg-[#800000] text-[#00FFFF] font-courier text-[10px] px-1 border-2 border-[#FF6600] w-full cursor-pointer">
+        GO AWAY
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       STICKY FOOTER (Permanent clutter at bottom of viewport)
+       ======================================================================== -->
+  <footer class="sticky-footer-chaos p-1 text-center">
+    <div class="flex flex-wrap justify-between items-center text-[10px] font-courier">
+      <span class="bg-[#00FF00] text-[#0000FF] px-1 font-bold">
+        &copy; 1997-2026 WORST UI FOUNDATION
+      </span>
+      <span class="font-papyrus text-xs text-[#00FFFF] blink-fast">
+        &#9733; BEST VIEWED WITH EYES CLOSED &#9733;
+      </span>
+      <div>
+        <a href="#top" onclick="event.preventDefault(); window.scrollTo(0, document.body.scrollHeight);" class="awful-link text-[10px]">
+          BACK TO TOP (ACTUALLY GOES TO BOTTOM)
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       HOSTILE CUSTOM MESSAGE BOX (Replaces native alert())
+       ======================================================================== -->
+  <div id="hostile-modal" class="hostile-modal-backdrop">
+    <div class="border-ridge-orange bg-[#00FF00] text-[#FF00FF] p-3 max-w-sm w-11/12 text-center shadow-2xl">
+      <div class="bg-[#800000] text-[#FFFF00] font-papyrus text-lg font-bold p-1 border-4 inset border-[#00FFFF]">
+        &#9888; CRITICAL SYSTEM MESSAGE &#9888;
+      </div>
+      <p id="hostile-modal-text" class="font-comic text-xl font-bold my-3 vibrate-yellow-lime p-2 border-4 border-[#0000FF]">
+        INVALID INPUT!
+      </p>
+      <p class="font-times text-[10px] text-[#0000FF] mb-2">
+        We will not tell you which field caused this error or how to fix it.
+      </p>
+      <button onclick="closeHostileModal()" class="bg-[#FF00FF] text-[#00FFFF] font-courier text-xs px-4 py-2 border-4 outset border-[#FFFF00] cursor-pointer">
+        ACKNOWLEDGE MY MISTAKE
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT: PROGRESSIVE SCROLL CHAOS, HOSTILE FORM, & DODGING CHAT
+       ======================================================================== -->
+  <script>
+    // State variables
+    let manualMaxChaos = false;
+    let carouselIntervalMs = 1500;
+    let carouselTimer = null;
+    let currentSlideIndex = 0;
+    let dodgeCount = 0;
+
+    // Carousel slides that vanish every 1.5 seconds
+    const carouselSlides = [
+      {
+        title: "SLIDE 1: TRY READING THIS BEFORE IT VANISHES!!",
+        body: "Important account security instructions are hidden on Slide 4 which only stays visible for 1.5 seconds!"
+      },
+      {
+        title: "SLIDE 2: CONGRATULATIONS YOU WON A TOASTER!!",
+        body: "Click the invisible pixel on the left border within 0.2 seconds to claim your prize!"
+      },
+      {
+        title: "SLIDE 3: YOUR PASSWORD EXPIRES IN 4 SECONDS!!",
+        body: "Please enter your mother's maiden name backwards in Roman numerals!"
+      },
+      {
+        title: "SLIDE 4: SECRET CODE IS 8842-9910-XJ9!!",
+        body: "Oops too late! It already switched back to Slide 1! Good luck memorizing that!"
+      }
+    ];
+
+    /**
+     * Starts or restarts the aggressively fast 1.5s carousel
+     */
+    function startCarousel() {
+      if (carouselTimer) clearInterval(carouselTimer);
+      carouselTimer = setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % carouselSlides.length;
+        const slide = carouselSlides[currentSlideIndex];
+        const titleEl = document.getElementById('carousel-slide-title');
+        const bodyEl = document.getElementById('carousel-slide-body');
+        if (titleEl && bodyEl) {
+          titleEl.textContent = slide.title;
+          bodyEl.textContent = slide.body;
+        }
+      }, carouselIntervalMs);
+    }
+
+    /**
+     * Makes the already-too-fast carousel even faster
+     */
+    function speedUpCarousel() {
+      carouselIntervalMs = Math.max(350, carouselIntervalMs - 400);
+      startCarousel();
+      triggerVagueError(`CAROUSEL SPEED INCREASED TO ${carouselIntervalMs}ms!`);
+    }
+
+    /**
+     * Progressive Awfulness on Scroll:
+     * Top looks passable; scrolling down ramps up saturation, contrast, and chaos
+     */
+    function updateProgressiveChaos() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const scrollRatio = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+      const effectiveRatio = manualMaxChaos ? 1 : scrollRatio;
+      const percent = Math.round(15 + effectiveRatio * 85);
+
+      const percentEl = document.getElementById('chaos-percent');
+      if (percentEl) percentEl.textContent = percent + '%';
+
+      const bodyEl = document.getElementById('page-body');
+      const calmZone = document.getElementById('zone-calm');
+
+      if (effectiveRatio > 0.35 || manualMaxChaos) {
+        bodyEl.classList.add('max-chaos');
+        // Corrupt the initially calm zone if user scrolls down or toggles max chaos
+        if (calmZone) {
+          calmZone.style.backgroundColor = '#FF00FF';
+          calmZone.style.color = '#00FFFF';
+          calmZone.style.border = '8px ridge #FF6600';
+          calmZone.style.fontFamily = '"Papyrus", fantasy';
+        }
+      } else {
+        bodyEl.classList.remove('max-chaos');
+        if (calmZone) {
+          calmZone.style.backgroundColor = '#e8f5e9';
+          calmZone.style.color = '#1b5e20';
+          calmZone.style.border = '4px solid #81c784';
+          calmZone.style.fontFamily = 'sans-serif';
+        }
+      }
+    }
+
+    /**
+     * Toggles forced maximum awfulness mode
+     */
+    function toggleManualChaos() {
+      manualMaxChaos = !manualMaxChaos;
+      const btn = document.getElementById('toggle-chaos-btn');
+      btn.textContent = manualMaxChaos ? 'DISABLE MAX CHAOS (STILL AWFUL)' : 'FORCE MAX AWFULNESS';
+      updateProgressiveChaos();
+    }
+
+    /**
+     * Smoothly scrolls user straight into the worst part of the page
+     */
+    function scrollToChaos() {
+      document.getElementById('zone-chaos-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /**
+     * Hostile form submission handler:
+     * Always fails with a vague message and wipes all fields
+     */
+    function handleHostileSubmit(event) {
+      event.preventDefault();
+      nukeEntireForm(false);
+      triggerVagueError('INVALID INPUT! ALL FIELDS HAVE BEEN RESET FOR YOUR CONVENIENCE.');
+    }
+
+    /**
+     * Resets all inputs when user clicks the giant tempting CANCEL/RESET button
+     */
+    function nukeEntireForm(showPopup = true) {
+      const form = document.getElementById('hostile-form');
+      if (form) form.reset();
+      const readout = document.getElementById('phone-readout');
+      if (readout) readout.textContent = '5551234567';
+      if (showPopup) {
+        triggerVagueError('SUCCESS! ALL YOUR HARD WORK HAS BEEN PERMANENTLY ERASED!');
+      }
+    }
+
+    /**
+     * Mystery header dropdown handler
+     */
+    function handleMysteryDropdown(selectEl) {
+      const val = selectEl.value;
+      if (val === 'top') {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      } else if (val === 'bottom') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (val === 'reset') {
+        nukeEntireForm(true);
+      }
+      selectEl.value = '';
+    }
+
+    /**
+     * Makes the floating "NEED HELP?" chat widget dodge the user's cursor/tap
+     */
+    function dodgeChatBox() {
+      const widget = document.getElementById('annoying-chat-widget');
+      if (!widget) return;
+      dodgeCount++;
+
+      // Move to an annoying spot covering the center or left of the screen
+      const positions = [
+        { bottom: '180px', right: '40%', left: 'auto', top: 'auto' },
+        { top: '120px', left: '15px', right: 'auto', bottom: 'auto' },
+        { bottom: '260px', right: '20px', left: 'auto', top: 'auto' },
+        { top: '45%', left: '25%', right: 'auto', bottom: 'auto' }
+      ];
+      const nextPos = positions[dodgeCount % positions.length];
+      widget.style.top = nextPos.top;
+      widget.style.bottom = nextPos.bottom;
+      widget.style.left = nextPos.left;
+      widget.style.right = nextPos.right;
+    }
+
+    /**
+     * Triggers an unhelpful popup when user clicks "YES PLEASE!" on the chat widget
+     */
+    function spawnMoreAnnoyance() {
+      dodgeChatBox();
+      triggerVagueError('CLIPPY_97 SAYS: HAVE YOU TRIED TURNING YOUR MONITOR UPSIDE DOWN?');
+    }
+
+    /**
+     * Custom Modal Trigger (Strictly avoiding native alert())
+     */
+    function triggerVagueError(message) {
+      const modal = document.getElementById('hostile-modal');
+      const textEl = document.getElementById('hostile-modal-text');
+      if (textEl) textEl.textContent = message || 'INVALID INPUT!';
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeHostileModal() {
+      const modal = document.getElementById('hostile-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // Initialize listeners on window load
+    window.addEventListener('load', () => {
+      startCarousel();
+      updateProgressiveChaos();
+      window.addEventListener('scroll', updateProgressiveChaos, { passive: true });
+    });
+  </script>
+</body>
+</html>
